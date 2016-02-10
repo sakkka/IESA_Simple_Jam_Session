@@ -1,0 +1,10 @@
+{
+	"files": [
+	{
+        "type":"AUDIO",
+         "wav": {
+            "source": "./samples/Bass/BassFX/bassfx1.wav",
+            "size":6796.8
+          }
+        }
+}
