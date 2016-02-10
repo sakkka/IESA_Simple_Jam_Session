@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$.html5Loader({
-      filesToLoad:    './instrument/bass.json', // this could be a JSON or simply a javascript object
+      filesToLoad:    'https://raw.githubusercontent.com/sakkka/IESA_Simple_Jam_Session/ClementDev/instrument/bass.json', // this could be a JSON or simply a javascript object
       onBeforeLoad:       function () {
       	console.log('le chargement démarre');
       },
