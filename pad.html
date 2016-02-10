@@ -7,12 +7,13 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/pad.css">
+        <link rel="stylesheet" href="css/chat.css">
         <link rel="stylesheet" href="css/themeSelect.css">
         <title>Simple Jam Session</title>
         <meta name="description" content="On-line jamming app">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/pad.js"></script>
-        <script type="text/javascript" src="js/themeSelect.js"></script>
+        <script type="text/javascript" src="js/interface.js"></script>
         <script type="text/javascript" src="js/jquery.html5Loader.js"></script>
     </head>
     <body>
@@ -69,6 +70,33 @@
                 <div class="key"id="spe1"></div>
                 <div class="key"id="spe2"></div>
                 <div class="key"id="spe3"></div>
+            </div>
+            <div class="chatRoom">
+                <h2 class="chatHeader">Chat</h2>
+                <div class="chatWindow">
+                    <div class="msg">
+                        <p><span id='user'>Clément</span> : Salut !</p>
+                        <p><span id='user'>Dimitri</span> : Salut !</p> 
+                        <p><span id='user'>Clément</span> : Ca va ?</p> 
+                        <p><span id='user'>Dimitri</span> : Oui et toi ?</p>  
+                        <p><span id='user'>Clément</span> : Oui</p> 
+                        <p><span id='user'>Dimitri</span> : Ok</p>                         
+                        <p><span id='user'>Clément</span> : Salut !</p>
+                        <p><span id='user'>Dimitri</span> : Salut !</p> 
+                        <p><span id='user'>Clément</span> : Ca va ?</p> 
+                        <p><span id='user'>Dimitri</span> : Oui et toi ?</p>  
+                        <p><span id='user'>Clément</span> : Oui</p> 
+                        <p><span id='user'>Dimitri</span> : Ok fiufdsyfids fs fsdh iffdsfjdsfo fsdh fdsf dhimfds hmfsdih fs</p> 
+                        <p><span id='user'>Clément</span> : Salut !</p>
+                        <p><span id='user'>Dimitri</span> : Salut !</p> 
+                        <p><span id='user'>Clément</span> : Ca va ?</p> 
+                        <p><span id='user'>Dimitri</span> : Oui et toi ?</p>  
+                        <p><span id='user'>Clément</span> : Oui</p> 
+                        <p><span id='user'>Dimitri</span> : Ok</p> 
+                    </div>   
+                    <textarea class="inputMsg" name="chat"></textarea>
+                    <div class="sendMsg">Envoyer</div>
+                </div>                  
             </div>
     </body>
 </html>

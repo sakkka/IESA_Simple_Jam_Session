@@ -1,0 +1,61 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.chatRoom {
+	position: fixed;
+	float: left;
+	bottom: 0;
+	background-color: white;
+	width: 300px;
+}
+
+h2.chatHeader {
+	margin: 0px;
+	padding-left: 5%;
+	width: 95%;
+	background-color: #333;
+	color: #FFF;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+}
+
+.chatWindow p {
+	margin: 2px 0px 2px 5px;
+	font-family: 'Open Sans', sans-serif;
+
+
+}
+
+.msg {
+	background-color: #FAFAFA;
+	height: 250px;
+	overflow-y: auto;
+}
+
+span#user {
+	font-weight: bold;
+}
+
+.inputMsg {
+	width: 70%;
+	height: 25px;
+	resize:none;
+	margin: 0px;
+}
+
+.sendMsg {
+	float: right;
+	width: 28%;
+	height:25px;
+	padding-top: 6px;
+	margin: 0px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	color : #FFF;
+	background-color: #419433;
+	}
+
+.sendMsg:hover {
+	cursor: pointer;
+}
+
