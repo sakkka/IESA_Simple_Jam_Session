@@ -46,6 +46,23 @@ $(document).ready(function(){
 			
 	});
 	*/
+
+	/* 
+	switch between chat and pad
+	
+	$(document).keyup(function(event){
+		if(event.keyCode==16) {
+			if ($(".inputMsg").is(':focus')) {
+
+				$(".pad").focus();
+				//$(".inputMsg").blur();
+				alert("focus");
+			}
+
+			$(".inputMsg").focus();
+		}
+	});
+	*/
 });
 
 function sendMsg(message,user){

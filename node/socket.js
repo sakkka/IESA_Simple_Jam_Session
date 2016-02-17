@@ -88,13 +88,13 @@ module.exports = function (app){
 			var sessionid = s.id;
 
 			
-			// on connect
+			// on new client connect
 			s.join('room1');
 
-			_that.emit('msg', {
+			s.broadcast.emit('msg', {
 				username : "Console",
-				txt : "Nouveau client connecté",
-				room: "room1"
+				txt : "nouveau client connecté",
+				room: _that.getRoomBySocketId(s)
 			});
 
 
