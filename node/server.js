@@ -4,6 +4,8 @@ var exp = require('express')();
 var http = require('http');
 var path = require('path');
 
+var bodyParser  = require('body-parser');
+
 
 module.exports = function() {
 	"use strict";
@@ -38,6 +40,13 @@ module.exports = function() {
 			exp.use(express.static(path.resolve('../assets/css')));
 			exp.use(express.static(path.resolve('../assets/js')));
 			exp.use(express.static(path.resolve('../assets/img')));
+			
+			//conf
+			exp.use(bodyParser.urlencoded({
+				extended: true
+			}));
+
+			exp.use(bodyParser.json());
 
 
 			exp.get('/', function(req, res) {
@@ -58,7 +67,16 @@ module.exports = function() {
 
 			exp.post('/play', function(req, res) {
 				//console.log("Sended name: "+req.body.nickname);
-			  	res.sendFile(path.resolve('../html/pad.html'));
+
+				var user = req.body.nickname;
+			    //var renderedFile = path.resolve('../html/pad.html');
+
+			    console.log(user);
+
+			    // RENDER FUCKIN PAD PAGE WITH VARS NAME AND ROOM
+			    res.render("pad.html", { user:user } );
+
+			  	//res.sendFile(path.resolve('../html/pad.html'));
 			});
 		}
 	}

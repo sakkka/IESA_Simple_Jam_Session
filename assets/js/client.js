@@ -1,10 +1,5 @@
 
-var socket = null;
-
-function connect() {
-
-	socket = io();
-}
+var socket = io();
 
 
 var myData = {

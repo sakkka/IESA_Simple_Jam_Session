@@ -59,30 +59,6 @@ module.exports = function (app){
 		 	})
 		},
 
-		getNameBySocketId : function(s) {
-			var _that = this;
-
-			var sessionid = s.id;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][0] == sessionid) {
-					return _that._clients[i][1];
-				}
-			}
-		},
-
-		getRoomBySocketId : function(s){
-			var _that = this;
-
-			var sessionid = s.id;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][0] == sessionid) {
-					return _that._clients[i][2];
-				}
-			}
-		},
-
 		listen : function(s) {
 			var _that = this;
 			var sessionid = s.id;
@@ -157,6 +133,30 @@ module.exports = function (app){
 			this._io.in(data.room).emit(chan, data);
 			
 			//this._io.emit(chan, data.content);
+		},
+
+		getNameBySocketId : function(s) {
+			var _that = this;
+
+			var sessionid = s.id;
+
+			for (var i=0; i<_that._clients.length; i++) {
+				if(_that._clients[i][0] == sessionid) {
+					return _that._clients[i][1];
+				}
+			}
+		},
+
+		getRoomBySocketId : function(s){
+			var _that = this;
+
+			var sessionid = s.id;
+
+			for (var i=0; i<_that._clients.length; i++) {
+				if(_that._clients[i][0] == sessionid) {
+					return _that._clients[i][2];
+				}
+			}
 		}
 	}
 
