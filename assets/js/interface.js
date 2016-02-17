@@ -99,7 +99,7 @@ $(document).ready(function(){
 	*/
 
 	$(document).keyup(function(event){
-		if((event.keyCode==13)&&($('.inputMsg').val()!='')&&($(".inputMsg").is(":focus"))){
+		if((event.keyCode==13)&&($('#inputText').val()!='')&&($(".inputMsg").is(":focus"))){
 
 			emit();
 		}
