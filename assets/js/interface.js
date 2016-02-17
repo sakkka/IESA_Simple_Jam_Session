@@ -32,16 +32,11 @@ $(document).ready(function(){
 		$('.chatWindow').slideToggle("fast");
 	});
 	//On push enter key
-	$(document).keyup(function(event){
-		if((event.keyCode==13)&&($('.inputMsg').val()!='')&&($(".inputMsg").is(":focus"))){
-			var message = $('.inputMsg').val();
-			var user = 'Clément'
-			sendMsg(message,user);
-		}
-	});
+	
 
 
 	//On click to the send button
+	/*
 	$('.sendMsg').click(function(event) {		
 			if($('.inputMsg').val()!=''){
 			var message = $('.inputMsg').val();
@@ -50,6 +45,7 @@ $(document).ready(function(){
 		}
 			
 	});
+	*/
 });
 
 function sendMsg(message,user){
