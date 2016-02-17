@@ -44,8 +44,8 @@ module.exports = function() {
 				res.sendFile(path.resolve("../html/index.html"));
 			});
 
-			exp.get('/jam-search', function(req, res) {
-				res.sendFile(path.resolve("../html/pad.html"));
+			exp.get('/connect', function(req, res) {
+				res.sendFile(path.resolve("../html/connect.html"));
 			});
 
 			exp.get('/jam-create', function(req, res) {
@@ -54,6 +54,11 @@ module.exports = function() {
 
 			exp.get('/play', function(req, res) {
 				res.sendFile(path.resolve('../html/pad.html'));
+			});
+
+			exp.post('/play', function(req, res) {
+				//console.log("Sended name: "+req.body.nickname);
+			  	res.sendFile(path.resolve('../html/pad.html'));
 			});
 		}
 	}

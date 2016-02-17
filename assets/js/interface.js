@@ -31,21 +31,6 @@ $(document).ready(function(){
 	$('.chatHeader').click(function(event) {
 		$('.chatWindow').slideToggle("fast");
 	});
-	//On push enter key
-	
-
-
-	//On click to the send button
-	/*
-	$('.sendMsg').click(function(event) {		
-			if($('.inputMsg').val()!=''){
-			var message = $('.inputMsg').val();
-			var user = 'Clément'
-			sendMsg(message,user);
-		}
-			
-	});
-	*/
 
 	/* 
 	switch between chat and pad
@@ -63,6 +48,15 @@ $(document).ready(function(){
 		}
 	});
 	*/
+
+	$(document).keyup(function(event){
+		if((event.keyCode==13)&&($('.inputMsg').val()!='')&&($(".inputMsg").is(":focus"))){
+
+			emit();
+		}
+	});
+
+	
 });
 
 function sendMsg(message,user){

@@ -1,4 +1,11 @@
-var socket = io();
+
+var socket = null;
+
+function connect() {
+
+	socket = io();
+}
+
 
 var myData = {
 	name : "guest",
@@ -7,12 +14,6 @@ var myData = {
 
 //$(".sendMsg").click(emit());
 
-$(document).keyup(function(event){
-	if((event.keyCode==13)&&($('.inputMsg').val()!='')&&($(".inputMsg").is(":focus"))){
-
-		emit();
-	}
-});
 
 function emit() {
 	var txt = $("#inputText").val();
@@ -47,9 +48,12 @@ function changeRoom() {
 	myData.room = room;
 }
 
-socket.on('msg', function(data) {
-	console.log("msg from "+data.username+" received: "+data.txt);
+if(socket != null ){
+	socket.on('msg', function(data) {
+		console.log("msg from "+data.username+" received: "+data.txt);
 
-	sendMsg(data.txt, data.username);
+		sendMsg(data.txt, data.username);
 
-});
+	});
+}
+

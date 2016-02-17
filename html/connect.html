@@ -4,29 +4,39 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <title>Simple Jam Session</title>
-        <meta name="description" content="On-line jamming app"> 
+        <meta name="description" content="On-line jamming app">
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="interface.js"></script>
+        <script type="text/javascript" src="jquery.html5Loader.js"></script>
+        <!-- client stuff -->
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script type="text/javascript" src="client.js"></script>
+
+
     </head>
     <body >
         <header style="height:100px;">
             <aside style="float:left;">
-                <img src="../assets/img/logo.jpg" style="width:20%; height:20%; "/>
+                <img src="logo.jpg" style="width:20%; height:20%; "/>
             </aside>
             <section>
             <nav style="float:right;">
-                <a href="index.html">Accueil</a>
+                <a href="/">Accueil</a>
             </nav>
             </section>
         </header>
     
     
     <section id="center" style="text-align:center;">
-        <form method="post" action="" >
-            <p><input type="text" name="pseudo" placeholder="Pseudo"/></p>
-            <p><input type="text" name="nom Jam" placeholder="Nom Jam" /></p>
-            <p><input type="submit" name="Jam" value="Jam" /></p>
+        <form method="post" onSubmit="JavaScript: connect()" action="/play" method="post">
+
+            <p><input type="text" name="nickname" placeholder="Pseudo" id="nickname"/></p>
+            <p><input type="text" name="room" placeholder="Nom room Jam" id="room"/></p>
+            <p><input type="submit" name="Jam" value="Jam !" /></p>
         </form>
 
     </section>
