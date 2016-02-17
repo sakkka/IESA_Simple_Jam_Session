@@ -74,9 +74,9 @@ module.exports = function() {
 			    console.log(user);
 
 			    // RENDER FUCKIN PAD PAGE WITH VARS NAME AND ROOM
-			    res.render("pad.html", { user:user } );
+			    //res.render("pad.html", { user:user } );
 
-			  	//res.sendFile(path.resolve('../html/pad.html'));
+			  	res.sendFile(path.resolve('../html/pad.html'));
 			});
 		}
 	}
