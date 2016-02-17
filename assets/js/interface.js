@@ -1,3 +1,4 @@
+
 $(document).ready(function(){ 
 
 	//Theme Picker
@@ -16,6 +17,7 @@ $(document).ready(function(){
 		    $('.themeList li').click(function(event) {
 		    	 var theme = $(this);
 		    	 $('.pad').attr('id','theme'+$(this).attr('theme'));
+		    	 $('.instrumentSelect').attr('id','theme'+$(this).attr('theme'));
 		    	 $('#themeSelect').animate({
 		    		height : 50
 		  			}, 500, function(){
@@ -24,6 +26,53 @@ $(document).ready(function(){
 		  		});	     
 		    });
 		  });
+	});
+
+
+	//Instrument Select
+
+	// show/hide 
+ 	$('.arrowIn').click(function(event) {
+		$('.instrumentList').slideToggle("fast");
+		$('.instrumentList').scrollLeft($('.instrumentList ul').width()/10);
+	});
+
+	//set witdh for ul
+	nbInstrument = $('.instrumentList ul').children().length;
+	$('.instrumentList ul').width((nbInstrument*210)+'px');
+	
+
+	//Scroll with mouse position	
+	$('.instrumentList').on( "mousemove", function( event ) {
+		if(event.pageX<200){
+			navigateLeft(200-event.pageX+1);
+		}
+
+		if(event.pageX>($('.instrumentList').width()-200)){
+			navigateRight(($('.instrumentList').width())-($('.instrumentList').width()-200))
+		}
+	});
+
+	function navigateLeft(coeff){
+		$('.instrumentList').scrollLeft($('.instrumentList').scrollLeft()-Math.round(coeff/10));
+	}
+
+	function navigateRight(coeff){
+		$('.instrumentList').scrollLeft($('.instrumentList').scrollLeft()+Math.round(coeff/10));
+	}
+
+	//Select instrument
+	$('.instrumentList li').click(function(event) {
+		$('.instrumentList li.active').removeClass('active');
+		$(this).addClass('active');
+		$('.instrumentList').slideToggle("fast");
+		});
+
+	$('.instrumentList li').hover(function() {
+		console.log('oui');
+		$(this).children('p').fadeIn('fast');
+	}, function() {
+		$(this).children('p').fadeOut('fast');
 	});
 
 
@@ -59,6 +108,7 @@ $(document).ready(function(){
 	
 });
 
+//Function who send message
 function sendMsg(message,user){
 	$('.msg').append('<p><span id="user">'+user+'</span> : '+message+'</p>');
 	$('.inputMsg').val('');
