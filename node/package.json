@@ -1,10 +1,15 @@
 {
-  "name": "express",
+  "name": "simple-jam-session",
   "version": "1.0.0",
-  "description": "test express",
+  "description": "simple jam sessions nodejs based app",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "readme": "web app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakkka/IESA_Simple_Jam_Session.git"
   },
   "author": "alex",
   "license": "ISC",

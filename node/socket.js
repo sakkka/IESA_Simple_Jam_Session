@@ -121,7 +121,6 @@ module.exports = function (app){
 						_that._clients[i][2] = content;
 					}
 				}
-				
 				s.join(content);
 			});
 
@@ -160,4 +159,4 @@ module.exports = function (app){
 		}
 	}
 
-}
+};
