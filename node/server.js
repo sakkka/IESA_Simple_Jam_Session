@@ -35,6 +35,8 @@ module.exports = function() {
 			exp.use(express.static(path.resolve('../assets/img')));
 			exp.use(express.static(path.resolve('../samples')));
 			exp.use(express.static(path.resolve('../samples/bass')));
+
+			exp.set('views', '../html');
 			
 			//conf
 			exp.use(bodyParser.urlencoded({
@@ -62,14 +64,10 @@ module.exports = function() {
 			exp.post('/play', function(req, res) {
 				//console.log("Sended name: "+req.body.nickname);
 
+				console.log(req.body);
+
 				var user = req.body.nickname;
-			    //var renderedFile = path.resolve('../html/pad.html');
-
-			    console.log(user);
-
-			    // RENDER PAD PAGE WITH VARS NAME AND ROOM
-			    //res.render("pad.html", { user:user } );
-
+			    
 			  	res.sendFile(path.resolve('../html/pad.html'));
 			});
 		}
