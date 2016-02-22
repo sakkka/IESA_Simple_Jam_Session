@@ -52,9 +52,10 @@ function changeRoom() {
 if(socket != null ){
 	socket.on('msg', function(data) {
 		console.log("msg from "+data.username+" received: "+data.txt);
-		
-		sendMsg(data.txt, data.username);
 
+		addNewMsgNotification();
+
+		sendMsg(data.txt, data.username);
 	});
 }
 

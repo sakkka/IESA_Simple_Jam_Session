@@ -80,8 +80,24 @@ $(document).ready(function(){
 
 
 	//Chat
+	
+
+	function openClose() {
+
+	}
+
+
 	$('.chatHeader').click(function(event) {
 		$('.chatWindow').slideToggle("fast");
+		
+		if(currentStateOpened) {
+			currentStateOpened = false;
+		} else {
+			// if i just opened it
+			$(".inputMsg").focus();
+			currentStateOpened = true;
+			eraseNewMsgNotification();
+		}
 	});
 
 	
@@ -95,6 +111,19 @@ $(document).ready(function(){
 
 	
 });
+
+var currentStateOpened = false;
+
+function addNewMsgNotification() {
+	if( !currentStateOpened ){
+
+		$(".chatHeader").addClass("newMsgNotification");
+	}
+}
+
+function eraseNewMsgNotification() {
+	$(".chatHeader").removeClass("newMsgNotification");
+}
 
 //Function who send message
 function sendMsg(message,user){
