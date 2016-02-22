@@ -3,10 +3,7 @@ var express = require('express');
 var exp = require('express')();
 var http = require('http');
 var path = require('path');
-<<<<<<< HEAD
-=======
 var port = 3000;
->>>>>>> a395b509857401f0e1675cb3107c9b45a1716052
 var bodyParser  = require('body-parser');
 
 
