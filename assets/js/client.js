@@ -1,6 +1,6 @@
 
 var socket = io();
-
+//var cookie = require('cookie');
 
 var myData = {
 	name : "guest",
@@ -9,6 +9,8 @@ var myData = {
 };
 
 //$(".sendMsg").click(emit());
+
+console.log(document.cookie);
 
 
 function emit() {
@@ -53,9 +55,9 @@ if(socket != null ){
 	socket.on('msg', function(data) {
 		console.log("msg from "+data.username+" received: "+data.txt);
 
-		addNewMsgNotification();
+		addNewMsgNotification(); //interface.js
 
-		sendMsg(data.txt, data.username);
+		sendMsg(data.txt, data.username); //interface.js
 	});
 }
 
