@@ -43,8 +43,8 @@ if(socket != null ){
 	socket.on('msg', function(data) {
 		console.log("msg from "+data.username+" received: "+data.txt);
 
+		addNewMsgNotification();
 		sendMsg(data.txt, data.username);
-
 	});
 }
 
