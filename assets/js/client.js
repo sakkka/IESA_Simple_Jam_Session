@@ -4,7 +4,8 @@ var socket = io();
 
 var myData = {
 	name : "guest",
-	room : "room1"
+	room : "room1",
+	instrument : "bass"
 };
 
 //$(".sendMsg").click(emit());
@@ -21,6 +22,15 @@ function emit() {
 		room : myData.room,
 		txt : txt
 	});
+}
+
+function changeInstrument(instrumentName){
+	
+	console.log("changing INSTRUMENT to: "+instrumentName);
+	socket.emit('changeInstrument', instrumentName );
+	// A FAIRE : controle de reception changeNick -> nickChanged
+	myData.instrument = instrumentName ;
+
 }
 
 function changeNick() {
@@ -42,7 +52,7 @@ function changeRoom() {
 if(socket != null ){
 	socket.on('msg', function(data) {
 		console.log("msg from "+data.username+" received: "+data.txt);
-
+		
 		sendMsg(data.txt, data.username);
 
 	});
