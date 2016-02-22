@@ -33,6 +33,8 @@ module.exports = function() {
 			exp.use(express.static(path.resolve('../assets/css')));
 			exp.use(express.static(path.resolve('../assets/js')));
 			exp.use(express.static(path.resolve('../assets/img')));
+			exp.use(express.static(path.resolve('../samples')));
+			exp.use(express.static(path.resolve('../samples/bass')));
 			
 			//conf
 			exp.use(bodyParser.urlencoded({
