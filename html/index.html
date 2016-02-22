@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="custom.css">
         <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <title>Simple Jam Session</title>
@@ -11,30 +12,40 @@
     </head>
     
     <body>
-        <header style="height:100px;">
-            <aside style="float:left;">
-                <img src="logo.jpg" style="width:20%; height:20%; "/>
-            </aside>
+        <header>
             <section>
             <nav style="float:right;">
-                <a href="/">Accueil</a>
+                <a href="index.html">Accueil</a>
             </nav>
             </section>
         </header>
+
+            <aside style="float:left;">
+                <img src="logo.png"/>
+            </aside>
     
+
         <section id="center" style="text-align:center;">
-            <button type="button" id="createjam" onclick="location.href='create'">
-                Creer une Jam session
-            </button>
-            <button type="button" id="joinjam" onclick="location.href='join'" >
-                Rejoindre une Jam session
-            </button>
+            
+            <div id="createjam">
+                <a href="create.html"><p>Créer une Jam session!</p></a>
+            </div>
+
+            <div id="button2" type="submit">
+                <p>Rejoindre une Jam session!</p>
+            </div>
+
         </section>
     
         <footer>
-            <aside>
-
-            </aside>
+        <div class="social">
+          <ul>
+              <li><a href="http://facebook.com"><img src="fb.png"></a></li>
+              <li><a href="http://twitter.com"><img src="twitter.png"></a></li>
+              <li><a href="http://googleplus.com"><img src="google.png"></a></li>
+          </ul>
+          </div>
         </footer>
     </body>
+
 </html>
