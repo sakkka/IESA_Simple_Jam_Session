@@ -9,6 +9,10 @@ html, body {
     background-size: cover;
 	}
 
+body {
+	background: url(bg.jpg);
+}	
+
 header {
 	background: url(header.jpg) no-repeat; 
 	opacity: 0.9;
@@ -24,6 +28,15 @@ aside img {
 	height: 20%;
 	position: relative;
 }
+
+.header img {
+	width: 29%;
+	position: relative;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: -180px;
+}
+
 
 nav a {
 	float: right;
@@ -61,7 +74,8 @@ button {
 #createjam {
 	width: 200px;
 	padding: 10px 0;
-	border: 1px solid #000;
+	border: 1px solid #70908a;
+	background-color: #70908a;
 	margin: auto;
 	margin-top: 20px;
 	cursor: pointer;
@@ -74,13 +88,14 @@ button {
 #createjam a p {
 	font-size: 15px;
 	font-family: helvetica;
-	color: #000; 
+	color: #fff; 
 	opacity: 0.9;
 	text-align: center;
 }
 
 #createjam:hover {
-	background-color: black;
+	background-color: #9ac8bf;
+	border: 1px solid #9ac8bf;
 	opacity: 0.9;
 	transition: 0.1s;
 }
@@ -93,7 +108,8 @@ button {
 #button2 {
 	padding: 10px 0;
 	width: 200px;
-	border: 1px solid #000;
+	border: 1px solid #70908a;
+	background-color: #70908a;
 	opacity: 0.9;
 	margin: auto;
 	margin-top: 50px;
@@ -103,13 +119,14 @@ button {
 #button2 p {
 	font-size: 15px;
 	font-family: helvetica;
-	color: #000; 
+	color: #fff; 
 	opacity: 0.9;
 	text-align: center;	
 }
 
 #button2:hover {
-	background-color: black;
+	background-color: #9ac8bf;
+	border: 1px solid #9ac8bf;
 	opacity: 0.9;
 	transition: 0.2s;
 }
