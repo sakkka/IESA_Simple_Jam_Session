@@ -29,6 +29,27 @@ $(document).ready(function(){
 	});
 
 
+	//Share
+
+	//show/hide 
+	$('.shareHeader').click(function(event) {
+		$('.shareContent').slideToggle("fast");		
+	});
+
+	//automatic copy url
+	$('.copyURL').click(function(){		
+		$('#urlRoom').select();
+		document.execCommand("copy");
+		$('.shareContent').slideToggle("fast");	
+
+	})
+
+	$('#urlRoom').click(function(){
+		$(this).select();
+	});
+
+
+
 	//Instrument Select
 
 	// show/hide 
