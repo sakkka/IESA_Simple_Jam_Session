@@ -95,7 +95,7 @@ module.exports = function (app){
 				_that.emit('msg', {
 					username : "Console",
 					txt : _that.getNameBySocketId(s)+" a changé son nom par "+content,
-					room : content.room
+					room : _that.getRoomBySocketId(s)
 				});
 
 				for (var i=0; i<_that._clients.length; i++) {
@@ -123,6 +123,17 @@ module.exports = function (app){
 				}
 				s.join(content);
 			});
+
+			//change instrument
+			s.on('changeInstrument', function(content) {
+				console.log(_that.getNameBySocketId(s)+" change his instrument to " +content);
+				console.log(content.room)
+				_that.emit('msg', {
+					username : "Console",
+					txt : _that.getNameBySocketId(s)+" a changé son instrument par " + content,
+					room : _that.getRoomBySocketId(s)
+				})
+			})
 
 		},
 

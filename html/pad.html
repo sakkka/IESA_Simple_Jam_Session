@@ -20,9 +20,8 @@
         <!-- client stuff -->
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
         <script type="text/javascript" src="client.js"></script>
-        <script type="text/javascript" src="js/pad.js"></script>
-        <script type="text/javascript" src="js/interface.js"></script>
-        <script type="text/javascript" src="js/audioApi.js"></script>
+
+
     </head>
     <body>
 
@@ -100,8 +99,7 @@
                 <div class="key"id="b"></div>
                 <div class="key"id="n"></div>
                 <div class="key"id="spe1"></div>
-                <div class="key"id="spe2"></div>
-                <div class="key"id="spe3"></div>
+    
             </div>
         </div>   
             <div class="chatRoom">
@@ -117,13 +115,13 @@
                 <div class="arrowIn"><h2>Instruments</h2></div>
                 <div class="instrumentList">
                     <ul>
-                        <li class="active"><img src="sax.png" /><p class="nameInstrument">Saxophone</p></li>
-                        <li><img src="djembe.png" /><p class="nameInstrument">Djembe</p></li>
-                        <li><img src="guitar1.png" /><p class="nameInstrument">Guitar</p></li>
-                        <li><img src="guitar2.png" /><p class="nameInstrument">Guitar</p></li>
-                        <li><img src="horn.png" /><p class="nameInstrument">Horn</p></li>
-                        <li><img src="maracas.png" /><p class="nameInstrument">Maracas</p></li>
-                        <li><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
+                        <li instrument="sax"><img src="sax.png" /><p class="nameInstrument">Saxophone</p></li>
+                        <li instrument="djembe"><img src="djembe.png" /><p class="nameInstrument">Djembe</p></li>
+                        <li instrument="guitar"><img src="guitar1.png" /><p class="nameInstrument">Guitar</p></li>
+                        <li class="active" instrument="bass"><img src="guitar2.png" /><p class="nameInstrument">Bass</p></li>
+                        <li instrument="horn"><img src="horn.png" /><p class="nameInstrument">Horn</p></li>
+                        <li instrument="maracas"><img src="maracas.png" /><p class="nameInstrument">Maracas</p></li>
+                        <li instrument="drums"><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
                     </ul>
                 </div>
             </div>   

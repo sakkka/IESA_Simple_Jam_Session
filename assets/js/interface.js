@@ -1,6 +1,6 @@
 
 $(document).ready(function(){ 
-
+	document.cookie="instrument=bass";
 	//Theme Picker
 	$('.themeList li').hover(function() {
 		$(this).css('border','2px solid white');
@@ -66,10 +66,13 @@ $(document).ready(function(){
 		$('.instrumentList li.active').removeClass('active');
 		$(this).addClass('active');
 		$('.instrumentList').slideToggle("fast");
+		document.cookie="instrument="+$(this).attr('instrument');
+		changeInstrument($(this).attr('instrument'));	
+		
+		
 		});
 
 	$('.instrumentList li').hover(function() {
-		console.log('oui');
 		$(this).children('p').fadeIn('fast');
 	}, function() {
 		$(this).children('p').fadeOut('fast');
@@ -77,26 +80,27 @@ $(document).ready(function(){
 
 
 	//Chat
+	
+
+	function openClose() {
+
+	}
+
+
 	$('.chatHeader').click(function(event) {
 		$('.chatWindow').slideToggle("fast");
-	});
-
-	/* 
-	switch between chat and pad
-	
-	$(document).keyup(function(event){
-		if(event.keyCode==16) {
-			if ($(".inputMsg").is(':focus')) {
-
-				$(".pad").focus();
-				//$(".inputMsg").blur();
-				alert("focus");
-			}
-
+		
+		if(currentStateOpened) {
+			currentStateOpened = false;
+		} else {
+			// if i just opened it
 			$(".inputMsg").focus();
+			currentStateOpened = true;
+			eraseNewMsgNotification();
 		}
 	});
-	*/
+
+	
 
 	$(document).keyup(function(event){
 		if((event.keyCode==13)&&($('#inputText').val()!='')&&($(".inputMsg").is(":focus"))){
@@ -108,6 +112,19 @@ $(document).ready(function(){
 	
 });
 
+var currentStateOpened = false;
+
+function addNewMsgNotification() {
+	if( !currentStateOpened ){
+
+		$(".chatHeader").addClass("newMsgNotification");
+	}
+}
+
+function eraseNewMsgNotification() {
+	$(".chatHeader").removeClass("newMsgNotification");
+}
+
 //Function who send message
 function sendMsg(message,user){
 	$('.msg').append('<p><span id="user">'+user+'</span> : '+message+'</p>');
@@ -115,3 +132,4 @@ function sendMsg(message,user){
 	$('.msg').animate({ scrollTop: 1000000 }, "slow");
 
 }
+
