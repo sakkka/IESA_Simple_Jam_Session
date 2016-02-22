@@ -72,12 +72,14 @@ body {
 }
 
 .arrowIn h2 {
-	background-color: #333;
+	background-color: #70908a;
 	color: #FFF;
 	margin: 0;
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	cursor: pointer;
+	letter-spacing: 0.060em;
+	font-weight: lighter;
 }
 
 .instrumentSelect {
