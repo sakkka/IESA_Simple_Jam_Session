@@ -1,0 +1,151 @@
+
+html, body {
+	position: fixed;
+	width: 100%;
+	height: 100%;	
+	margin: 0;
+	padding: 0;
+	background-color:;
+    background-size: cover;
+	}
+
+header {
+	background: url(header.jpg) no-repeat; 
+	opacity: 0.9;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100px;
+}
+
+aside img {
+	width: 20%;
+	height: 20%;
+	position: relative;
+}
+
+nav a {
+	float: right;
+	margin-top: -250px;
+	margin-right: 20px;
+	color: #70908a;
+	font-family: helvetica;
+	font-size: 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .110;
+}
+
+nav a:hover {
+	float: right;
+	color: #9ac8bf;
+	
+}
+
+section {
+	margin-top: 20%;
+}
+
+button {
+	margin-top: 75px;
+	font-family: helvetica;
+	font-size: 17px;
+	cursor: pointer;
+	color: #fff;
+	background-color: #b3c6c2;
+}
+
+
+
+#createjam {
+	width: 200px;
+	padding: 10px 0;
+	border: 1px solid #000;
+	margin: auto;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+#createjam a {
+  text-decoration: none;
+}
+
+#createjam a p {
+	font-size: 15px;
+	font-family: helvetica;
+	color: #000; 
+	opacity: 0.9;
+	text-align: center;
+}
+
+#createjam:hover {
+	background-color: black;
+	opacity: 0.9;
+	transition: 0.1s;
+}
+
+#createjam:hover a p {
+	color: white;
+	transition: 0.3s;
+}
+
+#button2 {
+	padding: 10px 0;
+	width: 200px;
+	border: 1px solid #000;
+	opacity: 0.9;
+	margin: auto;
+	margin-top: 50px;
+	cursor: pointer;
+}
+
+#button2 p {
+	font-size: 15px;
+	font-family: helvetica;
+	color: #000; 
+	opacity: 0.9;
+	text-align: center;	
+}
+
+#button2:hover {
+	background-color: black;
+	opacity: 0.9;
+	transition: 0.2s;
+}
+
+#button2:hover p {
+	color: white;
+	transition: 0.2s;
+}
+
+
+footer {
+  background-color: #D3D8DE;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 9vh;
+  position: fixed;
+}
+
+footer .social img {
+	height: 45px;
+}
+
+footer .social {
+  margin-left: 41.5%;
+  margin-top: -7px;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  position: absolute;
+}
+
+footer .social li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+
