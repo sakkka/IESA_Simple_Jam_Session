@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="custom.css">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="pad.css">
@@ -12,15 +13,21 @@
         <title>Simple Jam Session</title>
         <meta name="description" content="On-line jamming app">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
         <script type="text/javascript" src="pad.js"></script>
         <script type="text/javascript" src="interface.js"></script>
         <script type="text/javascript" src="jquery.html5Loader.js"></script>
         <!-- client stuff -->
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-        <script type="text/javascript" src="client.js"></script>
-
+        <script type="text/javascript" src="client.js"></script>        
     </head>
     <body>
+
+     <aside style="float:left;">
+                <img src="logo.png"/>
+            </aside>
+
+
         <div id="themeSelect">
             <span id="arrowDown"></span>
             <ul class="themeList">
@@ -72,9 +79,9 @@
                 <div class="key"id="b"></div>
                 <div class="key"id="n"></div>
                 <div class="key"id="spe1"></div>
-                <div class="key"id="spe2"></div>
-                <div class="key"id="spe3"></div>
+    
             </div>
+        </div>   
             <div class="chatRoom">
                 <h2 class="chatHeader">Chat</h2>
                 <div class="chatWindow">
@@ -84,5 +91,20 @@
                     <div class="sendMsg" onclick="emit()">Envoyer</div>
                 </div>                  
             </div>
+            <div id="theme1" class="instrumentSelect">
+                <div class="arrowIn"><h2>Instruments</h2></div>
+                <div class="instrumentList">
+                    <ul>
+                        <li instrument="sax"><img src="sax.png" /><p class="nameInstrument">Saxophone</p></li>
+                        <li instrument="djembe"><img src="djembe.png" /><p class="nameInstrument">Djembe</p></li>
+                        <li instrument="guitar"><img src="guitar1.png" /><p class="nameInstrument">Guitar</p></li>
+                        <li class="active" instrument="bass"><img src="guitar2.png" /><p class="nameInstrument">Bass</p></li>
+                        <li instrument="horn"><img src="horn.png" /><p class="nameInstrument">Horn</p></li>
+                        <li instrument="maracas"><img src="maracas.png" /><p class="nameInstrument">Maracas</p></li>
+                        <li instrument="drums"><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
+                    </ul>
+                </div>
+            </div>   
+    
     </body>
 </html>

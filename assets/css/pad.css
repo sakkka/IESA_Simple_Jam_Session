@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
 body {
 	margin : 0;	
 }
@@ -12,7 +15,7 @@ body {
 }
 
 .pad {
-	position: absolute;
+	po²ition: absolute;
 	width: 90%;		
 	padding: 10% 5% 5% 5%;
 }
@@ -55,6 +58,100 @@ body {
 	margin-top: 5px;
 }
 
+
+/*Select instrument*/
+.arrowIn {
+	margin: 0px;
+	width: 20%;
+	position: absolute;
+	left: 50%;
+	margin: 0;
+	margin-left: -10%;
+	margin-top: -33px;
+	
+}
+
+.arrowIn h2 {
+	background-color: #70908a;
+	color: #FFF;
+	margin: 0;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	letter-spacing: 0.060em;
+	font-weight: lighter;
+}
+
+.instrumentSelect {
+	width: 100%;
+	position: fixed;
+	float: left;
+	bottom: 0;
+	
+	}
+
+.instrumentList {
+	display: none;
+	width: 100%;
+	background-color:  #CCC;
+	height: 220px;
+	overflow-x: scroll;
+	margin-bottom: -20px;
+
+}
+
+.instrumentList ul {
+	margin: 0;
+	margin-left: 50px;
+	height: 190px;
+	padding: 0;
+	
+;}
+
+.instrumentList ul li {
+	list-style: none;
+	display: inline-block;
+	height: 180px;
+	width: 180px;
+	margin: 10px 10px;
+	background-color: #000;
+	border-radius: 10px;
+	border:2px solid transparent;
+	position: relative;
+}
+
+.instrumentList ul li.active {
+	border:2px solid #333;
+}
+
+.instrumentList ul li p:hover {
+	border:2px solid white;
+	cursor: pointer;
+}
+.instrumentList ul li img{
+	float: right;
+	position: absolute;
+}
+.instrumentList ul li p {
+	display: none;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 180px;
+	font-size: 19px;
+	border:2px solid transparent;
+	padding: 0;
+	margin: 0;
+	margin-top:-2px;
+	margin-left: -2px; 
+	width: 180px;
+	height: 180px;
+	color:white;
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgba(10, 10, 30, 0.4);
+	position: absolute;
+	float: left;
+}
+
 /*Theme 1*/
 #theme1 .row1 .key {
 	background-color: #BD96FF;
@@ -72,6 +169,13 @@ body {
 	background-color: #5E4B7F;
 }
 
+#theme1 .instrumentList {
+	background-color: #BD96FF;
+}
+
+#theme1 li {
+	background-color: #FFFDD5;
+}
 /*Theme 2*/
 #theme2 .row1 .key {
 	background-color: #8DCBCB;
@@ -89,6 +193,14 @@ body {
 	background-color: #4B7F7F;
 }
 
+#theme2 .instrumentList {
+	background-color: #8DCBCB;
+}
+
+#theme2 li {
+	background-color: #7F5E4B;
+}
+
 /*Theme 3*/
 #theme3 .row1 .key {
 	background-color: #A0CBAD;
@@ -104,4 +216,12 @@ body {
 
 #theme3 .row3 .key {
 	background-color: #577F63;
+}
+
+#theme3 .instrumentList {
+	background-color: #A0CBAD;
+}
+
+#theme3 li {
+	background-color: #CB6463;
 }

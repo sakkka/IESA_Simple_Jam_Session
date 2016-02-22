@@ -5,13 +5,21 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="custom.css">
-        <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <title>Simple Jam Session</title>
-        <meta name="description" content="On-line jamming app"> 
+        <meta name="description" content="On-line jamming app">
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="interface.js"></script>
+        <script type="text/javascript" src="jquery.html5Loader.js"></script>
+        <!-- client stuff 
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script type="text/javascript" src="client_b.js"></script>
+        -->
+
     </head>
-    
-    <body>
+    <body >
         <header>
             <section>
             <nav style="float:right;">
@@ -23,20 +31,16 @@
             <aside style="float:left;">
                 <img src="logo.png"/>
             </aside>
-    
 
         <section id="center" style="text-align:center;">
-            
-            <div id="createjam">
-                <a href="create"><p>Créer une Jam session!</p></a>
-            </div>
+            <form method="post" onSubmit="" action="/play">
 
-            <div id="button2" type="submit">
-                <p>Rejoindre une Jam session!</p>
-            </div>
-
+                <p><input type="text" name="nickname" placeholder="Pseudo" id="nickname"/></p>
+                <p><input type="text" name="room" placeholder="Nom room Jam" id="room"/></p>
+                <p><input type="submit" name="Jam" value="Jam !" /></p>
+            </form>
         </section>
-    
+
         <footer>
         <div class="social">
           <ul>
@@ -47,5 +51,4 @@
           </div>
         </footer>
     </body>
-
 </html>
