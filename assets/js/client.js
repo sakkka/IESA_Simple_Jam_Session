@@ -32,22 +32,25 @@ function changeInstrument(instrumentName){
 	socket.emit('changeInstrument', instrumentName );
 	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.instrument = instrumentName ;
-
 }
 
 function changeNick(nickname) {
+
 	console.log("changing NAME to: "+nickname);
 	socket.emit('changeNick', nickname);
 	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.name = nickname;
 }
 
+
 function changeRoom(room) {	
+
 	console.log("changing ROOM to: "+room);
 	socket.emit('changeRoom', room);
 	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.room = room;
 }
+
 console.log(myData.name);
 changeNick(myData.name);
 changeRoom(myData.room);
