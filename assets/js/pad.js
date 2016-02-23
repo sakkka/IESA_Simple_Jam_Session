@@ -224,14 +224,14 @@ $(document).ready(function(){
      //Function who will play local sound 	
 	function playLocalSound(numSound){		
 		var currentInstrument = getCookie('instrument');
-		emitSound(currentInstrument,numSound);
+		
 		var soundPlayer = document.createElement("AUDIO");
       	soundPlayer.load();		
 		soundPlayer.src = arrayInstrument[currentInstrument][numSound];
 		soundPlayer.load();
 		soundPlayer.play();
 		soundPlayer.remove();	
-		
+		emitSound(currentInstrument,numSound);
 	}
 
 
@@ -291,8 +291,9 @@ $(document).ready(function(){
 
 	
 });
-console.log(arrayInstrument);
-function playSendSound(nameInstrument){					
+
+
+function playSendSound(nameInstrument){				
 		var soundSendPlayer = document.createElement("AUDIO");
       	soundSendPlayer.load();		
 		soundSendPlayer.src = arrayInstrument[nameInstrument][1];

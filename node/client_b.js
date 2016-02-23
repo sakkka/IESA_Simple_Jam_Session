@@ -21,7 +21,7 @@ function emit() {
 }
 
 function emitSound(instrument,keyCode) {
-	socket.emitSound('sound', {
+	socket.emit('sound', {
 		instrumentName : instrument,
 		keyCodeValue : keyCode,
 		room : myData.room

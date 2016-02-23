@@ -73,7 +73,7 @@ if(socket != null ){
 		generateLink(data.room);
 	});
 
-	socket.on('sound',function(data) {
+	socket.on('sound',function(data) {		
 		playSendSound(data.instrumentName);
 	});
 }
