@@ -69,7 +69,7 @@ module.exports = function (app){
 
 			s.broadcast.emit('msg', {
 				username : "Console",
-				txt : "nouveau client connecté",
+				txt : _that.getNameBySocketId(s)+" s'est connecté",
 				room: _that.getRoomBySocketId(s)
 			});
 
@@ -102,7 +102,7 @@ module.exports = function (app){
 			// change nick
 			s.on('changeNick', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
-				
+
 				_that.emit('msg', {
 					username : "Console",
 					txt : _that.getNameBySocketId(s)+" a changé son nom par "+content,
@@ -120,7 +120,7 @@ module.exports = function (app){
 			// change room
 			s.on('changeRoom', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
-				
+
 				_that.emit('msg', {
 					username : "Console",
 					txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
@@ -132,6 +132,7 @@ module.exports = function (app){
 						_that._clients[i][2] = content;
 					}
 				}
+
 				s.join(content);
 			});
 
@@ -139,11 +140,12 @@ module.exports = function (app){
 			s.on('changeInstrument', function(content) {
 				console.log(_that.getNameBySocketId(s)+" change his instrument to " +content);
 				console.log(content.room)
+				
 				_that.emit('msg', {
 					username : "Console",
 					txt : _that.getNameBySocketId(s)+" a changé son instrument par " + content,
 					room : _that.getRoomBySocketId(s)
-				})
+				});
 			})
 
 		},
@@ -155,7 +157,7 @@ module.exports = function (app){
 			
 			//this._io.emit(chan, data.content);
 		},
-		
+
 		emitSound : function (s, chan, data) {
 			//send the code for the sound
 			s.broadcast.to(data.room).emit(chan, data);

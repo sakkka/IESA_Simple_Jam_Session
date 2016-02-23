@@ -31,11 +31,14 @@ function changeInstrument(instrumentName){
 	socket.emit('changeInstrument', instrumentName );
 	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.instrument = instrumentName ;
-
 }
 
 function changeNick(nickname) {
-	nickname = $("#nickname").val();
+	
+	if($("#nickname").val()) {
+		nickname = $("#nickname").val();
+	}
+
 	console.log("changing NAME to: "+nickname);
 	socket.emit('changeNick', nickname);
 	// A FAIRE : controle de reception changeNick -> nickChanged
@@ -43,7 +46,11 @@ function changeNick(nickname) {
 }
 
 function changeRoom(room) {
-	room = $("#room").val();
+
+	if($("#room").val()) {
+		room = $("#room").val();
+	}
+
 	console.log("changing ROOM to: "+room);
 	socket.emit('changeRoom', room);
 	// A FAIRE : controle de reception changeNick -> nickChanged
