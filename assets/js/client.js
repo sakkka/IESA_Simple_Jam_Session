@@ -10,8 +10,20 @@ var myData = {
 
 //$(".sendMsg").click(emit());
 
-console.log(document.cookie);
+socket.emit('join', {
+	room : myData.room
+});
 
+generateLink(myData.room); //interface.js
+
+
+function emitSound(instrument,keyCode){
+	socket.emit('sound', {
+		instrumentName : instrument,
+		keyCodeValue : keyCode,
+		room : myData.room
+	})
+}
 
 function emit() {
 	var txt = $("#inputText").val();
@@ -58,6 +70,15 @@ if(socket != null ){
 		addNewMsgNotification(); //interface.js
 
 		sendMsg(data.txt, data.username); //interface.js
+	});
+
+	socket.on('join',function(data) {		
+		generateLink(data.room); //interface.js
+		console.log("biteeee");
+	});
+
+	socket.on('sound',function(data) {		
+		playSendSound(data.instrumentName); //pad.js
 	});
 }
 

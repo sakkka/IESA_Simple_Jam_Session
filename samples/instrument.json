@@ -5,228 +5,158 @@
         "type":"AUDIO",
         "sources": {
           "wav":{
-            "source":"bassfx1.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx2.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx3.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx4.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx5.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx6.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx7.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassfx8.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff1.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff2.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff3.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff4.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff5.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff6.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff7.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bassriff8.wav",
-            "size":9285.632,
-            "instrument":"bass"
-          }
-      }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
             "source":"bass1.wav",
-            "size":9285.632,
+            "size":1,
             "instrument":"bass"
           }
       }
-  },  
+  },
   {
         "type":"AUDIO",
         "sources": {
           "wav":{
             "source":"bass2.wav",
-            "size":9285.632,
+            "size":1,
             "instrument":"bass"
           }
       }
-  },  
+  },
   {
         "type":"AUDIO",
         "sources": {
           "wav":{
             "source":"bass3.wav",
-            "size":9285.632,
+            "size":1,
             "instrument":"bass"
           }
       }
-  },  
+  },
   {
         "type":"AUDIO",
         "sources": {
           "wav":{
             "source":"bass4.wav",
-            "size":9285.632,
+            "size":1,
             "instrument":"bass"
           }
       }
-  },  
+  },
   {
         "type":"AUDIO",
         "sources": {
           "wav":{
             "source":"bass5.wav",
-            "size":9285.632,
+            "size":1,
             "instrument":"bass"
           }
       }
-  },  
+  },
   {
         "type":"AUDIO",
         "sources": {
           "wav":{
             "source":"bass6.wav",
-            "size":9285.632,
+            "size":1,
             "instrument":"bass"
           }
       }
-  },  
+  },
   {
         "type":"AUDIO",
         "sources": {
           "wav":{
             "source":"bass7.wav",
-            "size":9285.632,
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass8.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass9.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass10.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass11.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass12.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass13.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass14.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass15.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass16.wav",
+            "size":1,
             "instrument":"bass"
           }
       }
@@ -235,9 +165,629 @@
         "type":"AUDIO",
         "sources": {
           "wav":{
-            "source":"bass8.wav",
-            "size":9285.632,
+            "source":"bass17.wav",
+            "size":1,
             "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass18.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass19.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass20.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass21.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass22.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass23.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass24.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass25.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass26.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"bass27.wav",
+            "size":1,
+            "instrument":"bass"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums1.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums2.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums3.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums4.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums5.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums6.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums7.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums8.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums9.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums10.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums11.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums12.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums13.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums14.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums15.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums16.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums17.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums18.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums19.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums20.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums21.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums22.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums23.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums24.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums25.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"drums26.wav",
+            "size":1,
+            "instrument":"drums"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice1.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice2.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice3.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice4.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice5.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice6.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice7.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice8.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice9.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice10.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice11.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice12.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice13.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice14.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice15.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice16.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice17.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice18.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice19.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice20.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice21.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice22.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice23.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice24.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice25.wav",
+            "size":1,
+            "instrument":"voice"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"voice26.wav",
+            "size":1,
+            "instrument":"voice"
           }
       }
   }

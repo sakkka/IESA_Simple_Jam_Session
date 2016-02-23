@@ -14,6 +14,18 @@ function emit() {
 		room : myData.room,
 		txt : txt
 	});
+
+	socket.emit('join', {		
+		room : myData.room		
+	});
+}
+
+function emitSound(instrument,keyCode) {
+	socket.emit('sound', {
+		instrumentName : instrument,
+		keyCodeValue : keyCode,
+		room : myData.room
+	})
 }
 
 function changeNick() {
@@ -42,3 +54,7 @@ socket.on('msg', function(data) {
 	$("#chat").append(data.username+": "+data.txt+"<br>");
 
 });
+
+socket.on('join', function(data) {
+	console.log('CB: +'data.room);
+})

@@ -28,6 +28,25 @@ $(document).ready(function(){
 		  });
 	});
 
+	//Share
+
+	//show/hide 
+	$('.shareHeader').click(function(event) {
+		$('.shareContent').slideToggle("fast");		
+	});
+
+	//automatic copy url
+	$('.copyURL').click(function(){		
+		$('#urlRoom').select();
+		document.execCommand("copy");
+		$('.shareContent').slideToggle("fast");	
+
+	})
+
+	$('#urlRoom').click(function(){
+		$(this).select();
+	});
+
 
 	//Instrument Select
 
@@ -104,6 +123,7 @@ $(document).ready(function(){
 	
 });
 
+//Chat functio
 var currentStateOpened = false;
 
 function addNewMsgNotification() {
@@ -122,5 +142,11 @@ function sendMsg(message,user){
 	$('.inputMsg').val('');
 	$('.msg').animate({ scrollTop: 1000000 }, "slow");
 
+}
+
+//Fonction who send the cureent room and create the link for the current room
+function generateLink(nameRoom){
+	$('#urlRoom').val('http://localhost:3000/create?room='+nameRoom);
+	
 }
 

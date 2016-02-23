@@ -35,6 +35,8 @@ module.exports = function() {
 			exp.use(express.static(path.resolve('../assets/img')));
 			exp.use(express.static(path.resolve('../samples')));
 			exp.use(express.static(path.resolve('../samples/bass')));
+			exp.use(express.static(path.resolve('../samples/drum')));
+			exp.use(express.static(path.resolve('../samples/voice')));
 
 			exp.set('views', '../html');
 			
