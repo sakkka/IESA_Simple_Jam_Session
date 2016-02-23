@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
 	//KeyDown Event
-
+	ready = false;
 	$(document).keydown(function(event){	
-		if(!($(".inputMsg").is(":focus"))){	
+		if((!($(".inputMsg").is(":focus")))||(!ready)){	
 			switch(event.keyCode){
 				case 65:
 					keyPress('a');
@@ -252,6 +252,9 @@ $(document).ready(function(){
       	console.log('start');
       },
       onComplete:         function () {
+      	ready = true;
+      	$('.loading').fadeOut(100);
+      	$('.pad').fadeIn('fast');
       	console.log('end');    
       	console.log(arrayInstrument); 	
 
@@ -268,8 +271,12 @@ $(document).ready(function(){
 
       },
       onUpdate:           function ( percentage ) {
+      	$('.loading').width(percentage+'%')
       	console.log(percentage);
+      	
       }
 });
+
+	//Loader
 	
 })

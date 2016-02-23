@@ -49,6 +49,11 @@
             </ul>
             
         </div>
+        <div class="loader">
+            <div class="containerLoader">
+                <div class="loading"></div>
+            </div>
+        </div>
         <div class="pad" id="theme1">
             <div class="row1">
                 <div class="key" id="a"></div>
@@ -94,6 +99,13 @@
                     <div class="sendMsg" onclick="emit()">Envoyer</div>
                 </div>                  
             </div>
+            <div class="shareRoom">
+                <h2 class="shareHeader">Invitez vos amis !</h2>
+                <div class="shareContent">
+                    <input type="text" id="urlRoom" value="http://localhost:3000/create?room=123"></input>
+                    <div class="copyURL">Copier</div>
+                </div>    
+            </div>    
             <div id="theme1" class="instrumentSelect">
                 <div class="arrowIn"><h2>Instruments</h2></div>
                 <div class="instrumentList">
@@ -108,13 +120,7 @@
                     </ul>
                 </div>
             </div>   
-            <div class="shareRoom">
-                <h2 class="shareHeader">Invitez vos amis !</h2>
-                <div class="shareContent">
-                    <input type="text" id="urlRoom" value="http://localhost:3000/create?room=123"></input>
-                    <div class="copyURL">Copier</div>
-                </div>    
-            </div>    
+            
     
     </body>
 </html>
