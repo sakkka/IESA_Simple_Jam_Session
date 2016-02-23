@@ -73,6 +73,18 @@ module.exports = function (app){
 				room: _that.getRoomBySocketId(s)
 			});
 
+			s.emit('join', {
+				room: _that.getRoomBySocketId(s)
+			})
+
+			//connect
+			s.on('join',function(content){
+				socket.emit('join', {					
+					room : myData.room,
+		
+				});
+			})
+
 
 			// receive msg
 			s.on('msg', function(content) {

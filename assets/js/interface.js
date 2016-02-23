@@ -133,6 +133,7 @@ $(document).ready(function(){
 	
 });
 
+//Chat
 var currentStateOpened = false;
 
 function addNewMsgNotification() {
@@ -152,5 +153,11 @@ function sendMsg(message,user){
 	$('.inputMsg').val('');
 	$('.msg').animate({ scrollTop: 1000000 }, "slow");
 
+}
+
+//Fonction who send the cureent room and create the link for the current room
+function generateLink(nameRoom){
+	$('#urlRoom').val('http://localhost:3000/create?room='+nameRoom);
+	
 }
 
