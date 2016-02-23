@@ -240,36 +240,6 @@
             "instrument":"bass"
           }
       }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bass25.wav",
-            "size":1,
-            "instrument":"bass"
-          }
-      }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bass26.wav",
-            "size":1,
-            "instrument":"bass"
-          }
-      }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"bass27.wav",
-            "size":1,
-            "instrument":"bass"
-          }
-      }
   },
   {
         "type":"AUDIO",
@@ -510,26 +480,6 @@
             "instrument":"drums"
           }
       }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"drums25.wav",
-            "size":1,
-            "instrument":"drums"
-          }
-      }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"drums26.wav",
-            "size":1,
-            "instrument":"drums"
-          }
-      }
   },
   {
         "type":"AUDIO",
@@ -766,26 +716,6 @@
         "sources": {
           "wav":{
             "source":"voice24.wav",
-            "size":1,
-            "instrument":"voice"
-          }
-      }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"voice25.wav",
-            "size":1,
-            "instrument":"voice"
-          }
-      }
-  },  
-  {
-        "type":"AUDIO",
-        "sources": {
-          "wav":{
-            "source":"voice26.wav",
             "size":1,
             "instrument":"voice"
           }
