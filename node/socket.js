@@ -121,8 +121,6 @@ module.exports = function (app){
 			s.on('changeRoom', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
 
-				s.leave(_that.getRoomBySocketId(s));
-
 				_that.emit('msg', {
 					username : "Console",
 					txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
@@ -135,6 +133,7 @@ module.exports = function (app){
 					}
 				}
 
+				s.leave(_that.getRoomBySocketId(s));
 				s.join(content);
 			});
 
