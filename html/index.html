@@ -12,23 +12,6 @@
     </head>
     
     <body>
-    <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1769842519906053',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 <script type="text/javascript">    
 function fblogout() {    
           FB.logout(function () {    
@@ -61,7 +44,30 @@ function fblogout() {
             }, {perms:'read_stream,publish_stream,offline_access'});    
    redir();    
           }    
+
+          require 'function/facebook/facebook.php';    
+$facebook = new Facebook(array(  '1769842519906053'  => '',  'dc059116ea517bb15fd44d3b55e3c0e5' => '',  'cookie' => true,));    
+$session = $facebook->getSession();    
+$me = null;    
+
+if($session){    
+ try {    
+  $uid = $facebook->getUser();    
+  $me = $facebook->api('/me');    
+ }    
+ catch(FacebookApiException $e){    
+  error_log($e);    
+ }    
+} 
         </script>
+       <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=1607216289563828";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <header>
             <section>
             <nav style="float:right;">
@@ -84,7 +90,8 @@ function fblogout() {
             <div id="button2" type="submit">
                 <p>Rejoindre une Jam session!</p>
             </div>
-
+            <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+            <p>facebook log in </p>
         </section>
     
         <footer>
