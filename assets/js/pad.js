@@ -103,12 +103,15 @@ $(document).ready(function(){
 					break;	
 				case 66:
 					keyPress('b');
+					playSound('25')
 					break;	
 				case 78:
 					keyPress('n');
+					playSound('26')
 					break;
 				case 188:
 					keyPress('spe1');
+					playSound('27')
 					break;									
 				default:					
 					//do Nothing
@@ -271,8 +274,7 @@ $(document).ready(function(){
 
       },
       onUpdate:           function ( percentage ) {
-      	$('.loading').width(percentage+'%')
-      	console.log(percentage);
+      	$('.loading').width(percentage+'%');     	
       	
       }
 });
