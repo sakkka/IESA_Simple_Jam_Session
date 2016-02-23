@@ -81,7 +81,7 @@ module.exports = function (app){
 				var contentWithSender = {
 					username : _that.getNameBySocketId(s), 
 					txt : content.txt,
-					room : content.room
+					room : _that.getRoomBySocketId(s)
 				};
 
 				_that.emit('msg', contentWithSender);
@@ -93,8 +93,8 @@ module.exports = function (app){
 
 				_that.emitSound(s, 'sound', {
 					instrumentName : content.instrumentName,
-					keyCodeValue : content.keyCodeValue,		
-					room : content.room
+					keyCodeValue : content.keyCodeValue,	
+					room : _that.getRoomBySocketId(s)
 				});
 				
 			});
@@ -120,6 +120,8 @@ module.exports = function (app){
 			// change room
 			s.on('changeRoom', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
+
+				s.leave(_that.getRoomBySocketId(s));
 
 				_that.emit('msg', {
 					username : "Console",
@@ -188,5 +190,4 @@ module.exports = function (app){
 			}
 		}
 	}
-
 };
