@@ -10,6 +10,13 @@ var myData = {
 
 //$(".sendMsg").click(emit());
 
+function emitSound(instrument,keyCode){
+	socket.emit('sound', {
+		instrumentName : instrument,
+		keyCodeValue : keyCode,
+		room : myData.room
+	})
+}
 
 function emit() {
 	var txt = $("#inputText").val();
@@ -64,6 +71,10 @@ if(socket != null ){
 
 	socket.on('join',function(data) {		
 		generateLink(data.room);
-	})
+	});
+
+	socket.on('sound',function(data) {
+		playSendSound(data.instrumentName);
+	});
 }
 

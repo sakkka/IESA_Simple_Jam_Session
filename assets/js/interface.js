@@ -28,7 +28,6 @@ $(document).ready(function(){
 		  });
 	});
 
-
 	//Share
 
 	//show/hide 
@@ -47,7 +46,6 @@ $(document).ready(function(){
 	$('#urlRoom').click(function(){
 		$(this).select();
 	});
-
 
 
 	//Instrument Select
@@ -133,7 +131,7 @@ $(document).ready(function(){
 	
 });
 
-//Chat
+//Chat functio
 var currentStateOpened = false;
 
 function addNewMsgNotification() {

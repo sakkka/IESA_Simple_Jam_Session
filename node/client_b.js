@@ -20,6 +20,14 @@ function emit() {
 	});
 }
 
+function emitSound(instrument,keyCode) {
+	socket.emitSound('sound', {
+		instrumentName : instrument,
+		keyCodeValue : keyCode,
+		room : myData.room
+	})
+}
+
 function changeNick() {
 	var nickname = $("#nickname").val();
 	console.log("changing NAME to: "+nickname);

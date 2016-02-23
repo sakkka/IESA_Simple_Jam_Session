@@ -100,6 +100,17 @@ module.exports = function (app){
 				_that.emit('msg', contentWithSender);
 			});
 
+			//receive sound
+			s.on('sound', function(content) {
+				console.log("Received sound : "+content.instrumentName+" with key :"+ content.keyCodeValue +" for the room" + content.room);
+
+				_that.emitSound('sound', {
+					instrumentName : content.instrumentName,
+					keyCodeValue : content.keyCodeValue,		
+					room : content.room
+				});
+				
+			})
 			// change nick
 			s.on('changeNick', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
@@ -156,6 +167,11 @@ module.exports = function (app){
 			
 			//this._io.emit(chan, data.content);
 		},
+		emitSound : function (chan, data) {
+			//send the code for the sound
+			this._io.in(data.room).emit(chan, data);
+		},
+
 
 		getNameBySocketId : function(s) {
 			var _that = this;

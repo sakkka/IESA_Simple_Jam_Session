@@ -1,5 +1,6 @@
-$(document).ready(function(){
+var arrayInstrument  = {};
 
+$(document).ready(function(){
 	//KeyDown Event
 	ready = false;
 	$(document).keydown(function(event){	
@@ -7,111 +8,111 @@ $(document).ready(function(){
 			switch(event.keyCode){
 				case 65:
 					keyPress('a');
-					playSound('1');
+					playLocalSound('1');
 					break;
 				case 90:
 					keyPress('z');
-					playSound('2');
+					playLocalSound('2');
 					break;	
 				case 69:
 					keyPress('e');
-					playSound('3');
+					playLocalSound('3');
 					break;
 				case 82:
 					keyPress('r');
-					playSound('4');
+					playLocalSound('4');
 					break;
 				case 84:
 					keyPress('t');
-					playSound('5');
+					playLocalSound('5');
 					break;	
 				case 89:
 					keyPress('y');
-					playSound('6');
+					playLocalSound('6');
 					break;	
 				case 85:
 					keyPress('u');
-					playSound('7');
+					playLocalSound('7');
 					break;	
 				case 73:
 					keyPress('i');
-					playSound('8');
+					playLocalSound('8');
 					break;	
 				case 79:
 					keyPress('o');
-					playSound('9');
+					playLocalSound('9');
 					break;	
 				case 80:
 					keyPress('p');
-					playSound('10');
+					playLocalSound('10');
 					break;
 				case 81:
 					keyPress('q');
-					playSound('11');
+					playLocalSound('11');
 					break;		
 				case 83:
 					keyPress('s');
-					playSound('12');
+					playLocalSound('12');
 					break;		
 				case 68:
 					keyPress('d');
-					playSound('13');
+					playLocalSound('13');
 					break;		
 				case 70:
 					keyPress('f');
-					playSound('14');
+					playLocalSound('14');
 					break;		
 				case 71:
 					keyPress('g');
-					playSound('15');
+					playLocalSound('15');
 					break;		
 				case 72:
 					keyPress('h');
-					playSound('16');
+					playLocalSound('16');
 					break;		
 				case 74:
 					keyPress('j');
-					playSound('17')
+					playLocalSound('17')
 					break;	
 				case 75:
 					keyPress('k');
-					playSound('18')
+					playLocalSound('18')
 					break;		
 				case 76:
 					keyPress('l');
-					playSound('19')
+					playLocalSound('19')
 					break;		
 				case 77:
 					keyPress('m');
-					playSound('20')
+					playLocalSound('20')
 					break;
 				case 87:
 					keyPress('w');
-					playSound('21')
+					playLocalSound('21')
 					break;	
 				case 88:
 					keyPress('x');
-					playSound('22')
+					playLocalSound('22')
 					break;	
 				case 67:
 					keyPress('c');
-					playSound('23')
+					playLocalSound('23')
 					break;	
 				case 86:
 					keyPress('v');
-					playSound('24')
+					playLocalSound('24')
 					break;	
 				case 66:
 					keyPress('b');
-					playSound('25')
+					playLocalSound('25')
 					break;	
 				case 78:
 					keyPress('n');
-					playSound('26')
+					playLocalSound('26')
 					break;
 				case 188:
 					keyPress('spe1');
-					playSound('27')
+					playLocalSound('27')
 					break;									
 				default:					
 					//do Nothing
@@ -220,18 +221,23 @@ $(document).ready(function(){
 	// init sound player
 	
 
-     //Function who will play sound 	
-	function playSound(numSound){
-		var soundPlayer = document.createElement("AUDIO");
+     //Function who will play local sound 	
+	function playLocalSound(numSound){		
 		var currentInstrument = getCookie('instrument');
+		emitSound(currentInstrument,numSound);
+		var soundPlayer = document.createElement("AUDIO");
       	soundPlayer.load();		
 		soundPlayer.src = arrayInstrument[currentInstrument][numSound];
 		soundPlayer.load();
 		soundPlayer.play();
-		soundPlayer.remove();		
-
+		soundPlayer.remove();	
 		
 	}
+
+
+	
+
+
 
 	//Function who return cookie
 	function getCookie(cname) {
@@ -246,7 +252,7 @@ $(document).ready(function(){
 	}
 
 	//Load instrument
-	var arrayInstrument  = {};
+	
 	
 
 	$.html5Loader({
@@ -279,6 +285,18 @@ $(document).ready(function(){
       }
 });
 
-	//Loader
+	//Emit sound
+	//Function who will play recieve sound 	
 	
-})
+
+	
+});
+console.log(arrayInstrument);
+function playSendSound(nameInstrument){					
+		var soundSendPlayer = document.createElement("AUDIO");
+      	soundSendPlayer.load();		
+		soundSendPlayer.src = arrayInstrument[nameInstrument][1];
+		soundSendPlayer.load();
+		soundSendPlayer.play();
+		soundSendPlayer.remove();			
+	}
