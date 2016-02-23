@@ -253,7 +253,7 @@ $(document).ready(function(){
       },
       onComplete:         function () {
       	ready = true;
-      	$('.loading').fadeOut(100);
+      	$('.loader').fadeOut(100);
       	$('.pad').fadeIn('fast');
       	console.log('end');    
       	console.log(arrayInstrument); 	
