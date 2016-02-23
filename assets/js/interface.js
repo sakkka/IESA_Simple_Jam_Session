@@ -112,14 +112,17 @@ $(document).ready(function(){
 		}
 	});
 
-	
-
+	// send message with Enter
 	$(document).keyup(function(event){
 		if((event.keyCode==13) && ($('#inputText').val()) && ($(".inputMsg").is(":focus")) ){
 			emit(); // client.js function
 		}
 	});
 
+	// display "join room link"
+	$(document).ready(function() {
+		generateLink(myData.room); //interface.js
+	});
 	
 });
 
@@ -137,7 +140,7 @@ function eraseNewMsgNotification() {
 }
 
 //Function who send message
-function sendMsg(message,user){
+function sendMsg(message, user){
 	$('.msg').append('<p><span id="user">'+user+'</span> : '+message+'</p>');
 	$('.inputMsg').val('');
 	$('.msg').animate({ scrollTop: 1000000 }, "slow");
@@ -147,6 +150,5 @@ function sendMsg(message,user){
 //Fonction who send the cureent room and create the link for the current room
 function generateLink(nameRoom){
 	$('#urlRoom').val('http://localhost:3000/create?room='+nameRoom);
-	
 }
 
