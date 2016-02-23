@@ -73,18 +73,6 @@ module.exports = function (app){
 				room: _that.getRoomBySocketId(s)
 			});
 
-
-			//connect
-			s.on('join', function(content){
-
-				console.log("join room : "+content.room);
-
-				s.emit('join', {					
-					room : content.room
-				});
-			});
-
-
 			// receive msg
 			s.broadcast.on('msg', function(content) {
 
@@ -110,6 +98,7 @@ module.exports = function (app){
 				});
 				
 			});
+
 			// change nick
 			s.on('changeNick', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
@@ -166,6 +155,7 @@ module.exports = function (app){
 			
 			//this._io.emit(chan, data.content);
 		},
+		
 		emitSound : function (s, chan, data) {
 			//send the code for the sound
 			s.broadcast.to(data.room).emit(chan, data);
