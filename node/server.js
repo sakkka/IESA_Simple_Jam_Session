@@ -68,9 +68,20 @@ module.exports = function() {
 
 				console.log(req.body);
 
-				var user = req.body.nickname;
-			    
-			  	res.sendFile(path.resolve('../html/pad.html'));
+
+				res.sendFile(path.resolve('../html/pad.html'));
+
+
+				/*
+				if(isEmpty(req.body) {
+					res.sendFile(path.resolve('../html/index.html'));
+				} else {
+					res.sendFile(path.resolve('../html/pad.html'));
+				}
+				*/
+
+							    
+			  	
 			});
 		}
 	}

@@ -1,6 +1,6 @@
 
 var socket = io();
-
+//var cookie = require('cookie');
 
 var myData = {
 	name : "guest",
@@ -9,6 +9,13 @@ var myData = {
 };
 
 //$(".sendMsg").click(emit());
+
+socket.emit('join', {
+	room : myData.room
+});
+
+generateLink(myData.room); //interface.js
+
 
 function emitSound(instrument,keyCode){
 	socket.emit('sound', {
@@ -28,10 +35,6 @@ function emit() {
 		username : myData.name,
 		room : myData.room,
 		txt : txt
-	});
-
-	socket.emit('join', {		
-		room : myData.room		
 	});
 }
 
@@ -64,17 +67,18 @@ if(socket != null ){
 	socket.on('msg', function(data) {
 		console.log("msg from "+data.username+" received: "+data.txt);
 
-		addNewMsgNotification();
+		addNewMsgNotification(); //interface.js
 
-		sendMsg(data.txt, data.username);
+		sendMsg(data.txt, data.username); //interface.js
 	});
 
 	socket.on('join',function(data) {		
-		generateLink(data.room);
+		generateLink(data.room); //interface.js
+		console.log("biteeee");
 	});
 
 	socket.on('sound',function(data) {		
-		playSendSound(data.instrumentName);
+		playSendSound(data.instrumentName); //pad.js
 	});
 }
 

@@ -98,14 +98,7 @@ $(document).ready(function(){
 	});
 
 
-	//Chat
-	
-
-	function openClose() {
-
-	}
-
-
+	//Chat and notifications
 	$('.chatHeader').click(function(event) {
 		$('.chatWindow').slideToggle("fast");
 		
@@ -122,9 +115,8 @@ $(document).ready(function(){
 	
 
 	$(document).keyup(function(event){
-		if((event.keyCode==13)&&($('#inputText').val()!='')&&($(".inputMsg").is(":focus"))){
-
-			emit();
+		if((event.keyCode==13) && ($('#inputText').val()) && ($(".inputMsg").is(":focus")) ){
+			emit(); // client.js function
 		}
 	});
 
@@ -136,7 +128,6 @@ var currentStateOpened = false;
 
 function addNewMsgNotification() {
 	if( !currentStateOpened ){
-
 		$(".chatHeader").addClass("newMsgNotification");
 	}
 }

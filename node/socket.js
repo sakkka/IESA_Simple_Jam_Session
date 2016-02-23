@@ -73,17 +73,16 @@ module.exports = function (app){
 				room: _that.getRoomBySocketId(s)
 			});
 
-			s.emit('join', {
-				room: _that.getRoomBySocketId(s)
-			})
 
 			//connect
-			s.on('join',function(content){
-				socket.emit('join', {					
-					room : myData.room,
-		
+			s.on('join', function(content){
+
+				console.log("join room : "+content.room);
+
+				s.emit('join', {					
+					room : content.room
 				});
-			})
+			});
 
 
 			// receive msg
@@ -110,7 +109,7 @@ module.exports = function (app){
 					room : content.room
 				});
 				
-			})
+			});
 			// change nick
 			s.on('changeNick', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
