@@ -87,7 +87,7 @@ module.exports = function (app){
 
 
 			// receive msg
-			s.on('msg', function(content) {
+			s.broadcast.on('msg', function(content) {
 
 				console.log("Received msg from: "+_that.getNameBySocketId(s)+", content: "+content.txt+", for: "+content.room);
 
@@ -100,6 +100,17 @@ module.exports = function (app){
 				_that.emit('msg', contentWithSender);
 			});
 
+			//receive sound
+			s.broadcast.on('sound', function(content) {
+				console.log("Received sound : "+content.instrumentName+" with key :"+ content.keyCodeValue +" for the room" + content.room);
+
+				_that.emitSound(s, 'sound', {
+					instrumentName : content.instrumentName,
+					keyCodeValue : content.keyCodeValue,		
+					room : content.room
+				});
+				
+			})
 			// change nick
 			s.on('changeNick', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
@@ -156,6 +167,11 @@ module.exports = function (app){
 			
 			//this._io.emit(chan, data.content);
 		},
+		emitSound : function (s, chan, data) {
+			//send the code for the sound
+			s.broadcast.to(data.room).emit(chan, data);
+		},
+
 
 		getNameBySocketId : function(s) {
 			var _that = this;

@@ -6,7 +6,7 @@ app.server.create();
 app.socket = require("./socket")(app);
 app.socket.init();
 
-app.messages = require("./socket")(app);
+//app.messages = require("./socket")(app);
 
 /*
 io.on('connection', function(socket){ 
