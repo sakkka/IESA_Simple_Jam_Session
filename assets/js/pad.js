@@ -41,78 +41,66 @@ $(document).ready(function(){
 				case 79:
 					keyPress('o');
 					playLocalSound('9');
-					break;	
-				case 80:
-					keyPress('p');
-					playLocalSound('10');
-					break;
+					break;				
 				case 81:
 					keyPress('q');
-					playLocalSound('11');
+					playLocalSound('10');
 					break;		
 				case 83:
 					keyPress('s');
-					playLocalSound('12');
+					playLocalSound('11');
 					break;		
 				case 68:
 					keyPress('d');
-					playLocalSound('13');
+					playLocalSound('12');
 					break;		
 				case 70:
 					keyPress('f');
-					playLocalSound('14');
+					playLocalSound('13');
 					break;		
 				case 71:
 					keyPress('g');
-					playLocalSound('15');
+					playLocalSound('14');
 					break;		
 				case 72:
 					keyPress('h');
-					playLocalSound('16');
+					playLocalSound('15');
 					break;		
 				case 74:
 					keyPress('j');
-					playLocalSound('17')
+					playLocalSound('16')
 					break;	
 				case 75:
 					keyPress('k');
-					playLocalSound('18')
-					break;		
-				case 76:
-					keyPress('l');
-					playLocalSound('19')
-					break;		
-				case 77:
-					keyPress('m');
-					playLocalSound('20')
-					break;
+					playLocalSound('17')
+					break;	
 				case 87:
 					keyPress('w');
-					playLocalSound('21')
+					playLocalSound('18')
 					break;	
 				case 88:
 					keyPress('x');
-					playLocalSound('22')
+					playLocalSound('19')
 					break;	
 				case 67:
 					keyPress('c');
-					playLocalSound('23')
+					playLocalSound('20')
 					break;	
 				case 86:
 					keyPress('v');
-					playLocalSound('24')
+					playLocalSound('21')
 					break;	
 				case 66:
 					keyPress('b');
-					playLocalSound('25')
+					playLocalSound('22')
 					break;	
 				case 78:
 					keyPress('n');
-					playLocalSound('26')
+					playLocalSound('23')
 					break;
 				case 188:
 					keyPress('spe1');
-					playLocalSound('27')
+					playLocalSound('24')
 					break;									
 				default:					
 					//do Nothing
@@ -150,10 +138,7 @@ $(document).ready(function(){
 				break;
 			case 79:
 				keyRelease('o');
-				break;
-			case 80:
-				keyRelease('p');
-				break;
+				break;		
 			case 81:
 				keyRelease('q');
 				break;		
@@ -178,12 +163,6 @@ $(document).ready(function(){
 			case 75:
 				keyRelease('k');
 				break;		
-			case 76:
-				keyRelease('l');
-				break;		
-			case 77:
-				keyRelease('m');
-				break;
 			case 87:
 				keyRelease('w');
 				break;	
@@ -240,16 +219,6 @@ $(document).ready(function(){
 
 
 	//Function who return cookie
-	function getCookie(cname) {
-	    var name = cname + "=";
-	    var ca = document.cookie.split(';');
-	    for(var i=0; i<ca.length; i++) {
-	        var c = ca[i];
-	        while (c.charAt(0)==' ') c = c.substring(1);
-	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-	    }
-	    return "";
-	}
 
 	//Load instrument
 	
@@ -291,6 +260,16 @@ $(document).ready(function(){
 
 	
 });
+	function getCookie(cname) {
+	    var name = cname + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0; i<ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') c = c.substring(1);
+	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+	    }
+	    return "";
+	}
 
 
 function playSendSound(nameInstrument,keyCode){				
