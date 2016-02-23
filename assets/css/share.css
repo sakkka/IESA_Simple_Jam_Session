@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.shareRoom {
+	position: fixed;
+	right: 30px;
+	bottom: 0;
+	background-color: white;
+	width: 300px;
+	
+}
+
+h2.shareHeader {
+	margin: 0px;
+	padding-left: 5%;
+	width: 95%;
+	background-color: #70908a;
+	color: #FFF;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	letter-spacing: 0.060em;
+	font-weight: lighter;
+}
+
+.shareContent {
+	display: none;
+}
+
+#urlRoom {
+	margin: 10px 10px 10px 20px;
+	font-size: 20px;
+	width: 65%;
+}
+
+.copyURL {
+	float: right;
+	width: 20%;
+	height:25px;
+	padding-top: 6px;
+	margin: 10px 0px 0px 0px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	color : #FFF;
+	background-color: #419433;
+
+}
+
+.copyURL {
+	cursor: pointer;
+}

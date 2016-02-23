@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
 	//KeyDown Event
-
+	ready = false;
 	$(document).keydown(function(event){	
-		if(!($(".inputMsg").is(":focus"))){	
+		if((!($(".inputMsg").is(":focus")))||(!ready)){	
 			switch(event.keyCode){
 				case 65:
 					keyPress('a');
@@ -244,7 +244,7 @@ $(document).ready(function(){
 
 	//Load instrument
 	var arrayInstrument  = {};
-	var i = 0;
+	
 
 	$.html5Loader({
       filesToLoad:    'instrument.json', // this could be a JSON or simply a javascript object
@@ -252,23 +252,31 @@ $(document).ready(function(){
       	console.log('start');
       },
       onComplete:         function () {
+      	ready = true;
+      	$('.loader').fadeOut(100);
+      	$('.pad').fadeIn('fast');
       	console.log('end');    
       	console.log(arrayInstrument); 	
 
       },
       onElementLoaded:    function ( obj, elm) { 
-      	i++;
+      	var sourceSound = obj.source;
       	var instrumentname = obj.instrument;
       	if (typeof arrayInstrument[instrumentname] == 'undefined') {
   		arrayInstrument[instrumentname] = {}
 		}      	
-      	arrayInstrument[instrumentname][i]  = obj.source;     	
+		var number =  sourceSound.match(instrumentname+"(.*).wav");
+      	arrayInstrument[instrumentname][number[1]]  = obj.source;     	
 
 
       },
       onUpdate:           function ( percentage ) {
+      	$('.loading').width(percentage+'%')
       	console.log(percentage);
+      	
       }
 });
+
+	//Loader
 	
 })
