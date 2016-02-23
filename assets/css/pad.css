@@ -18,6 +18,36 @@ body {
 	}
 }
 
+/* Loader */
+
+.loader {
+	position: absolute;
+	width: 90%;		
+	padding: 10% 5% 5% 5%;
+	height: 100%;
+	background-color: #FFFDD5;
+}
+
+.containerLoader {
+	width: 60%;
+	height: 5%;
+	background-color: #8E70BF;
+	border-radius: 10px;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	margin-left: -30%;
+	padding: 10px;
+
+}
+
+.loading {
+	position: relative;
+	width: 0%;
+	height: 100%;
+	background-color: #5E4B7F;
+}
+
 .newMsgNotification{
 	background-color: red !important;
 	-webkit-animation: msgNotification 2s 0s linear infinite;
@@ -34,6 +64,7 @@ body {
 	position: absolute;
 	width: 90%;		
 	padding: 10% 5% 5% 5%;
+	display: none;
 }
 
 .row1 {
