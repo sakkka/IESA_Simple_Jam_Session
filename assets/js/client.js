@@ -22,6 +22,10 @@ function emit() {
 		room : myData.room,
 		txt : txt
 	});
+
+	socket.emit('join', {		
+		room : myData.room		
+	});
 }
 
 function changeInstrument(instrumentName){
@@ -57,5 +61,9 @@ if(socket != null ){
 
 		sendMsg(data.txt, data.username);
 	});
+
+	socket.on('join',function(data) {		
+		generateLink(data.room);
+	})
 }
 
