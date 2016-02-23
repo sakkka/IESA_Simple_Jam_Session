@@ -1,3 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+@-webkit-keyframes jamAnim {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.15);
+	}
+	
+	100% {
+		
+		transform: scale(1);
+	}
+}
 
 html, body {
 	position: fixed;
@@ -5,123 +22,58 @@ html, body {
 	height: 100%;	
 	margin: 0;
 	padding: 0;
-	background-color:;
-    background-size: cover;
+	background-color:#FFFDD5;
 	}
 
-header {
-	background: url(header.jpg) no-repeat; 
-	opacity: 0.9;
-	background-size: cover;
-	position: fixed;
-	top: 0;
+.logo {
 	width: 100%;
-	height: 100px;
+
 }
 
-aside img {
-	width: 20%;
-	height: 20%;
-	position: relative;
+.logo img {
+	width: 10%;
+	position: absolute;
+	left: 50%;
+	margin-left: -5%;
+	top : 15%;
 }
 
-nav a {
-	float: right;
-	margin-top: -250px;
-	margin-right: 20px;
-	color: #70908a;
-	font-family: helvetica;
-	font-size: 20px;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: .110;
+.join {
+	background-color: #5E4B7F;
+	width: 30%;
+	height: 10%;
+	position: absolute;
+	left: 50%;
+	margin-left: -15%;
+	top:45%;
+	border-radius: 10px;
 }
 
-nav a:hover {
-	float: right;
-	color: #9ac8bf;
-	
+#center {
+	width: 30%;
+	height: 10%;
+	position: absolute;
+	left: 50%;
+	margin-left: -15%;
+	top:45%;
 }
 
-section {
-	margin-top: 20%;
-}
-
-button {
-	margin-top: 75px;
-	font-family: helvetica;
-	font-size: 17px;
+.join:hover {
 	cursor: pointer;
-	color: #fff;
-	background-color: #b3c6c2;
+	-webkit-animation: jamAnim 0.7s 0s linear infinite;
 }
 
-
-
-#createjam {
-	width: 200px;
-	padding: 10px 0;
-	border: 1px solid #000;
-	margin: auto;
-	margin-top: 20px;
-	cursor: pointer;
-}
-
-#createjam a {
-  text-decoration: none;
-}
-
-#createjam a p {
-	font-size: 15px;
-	font-family: helvetica;
-	color: #000; 
-	opacity: 0.9;
+.join p {
+	font-family: 'Open Sans', sans-serif;
+	color : white;
+	width: 100%;
 	text-align: center;
+	height: 100%;
+	font-size: 30px;
 }
-
-#createjam:hover {
-	background-color: black;
-	opacity: 0.9;
-	transition: 0.1s;
-}
-
-#createjam:hover a p {
-	color: white;
-	transition: 0.3s;
-}
-
-#button2 {
-	padding: 10px 0;
-	width: 200px;
-	border: 1px solid #000;
-	opacity: 0.9;
-	margin: auto;
-	margin-top: 50px;
-	cursor: pointer;
-}
-
-#button2 p {
-	font-size: 15px;
-	font-family: helvetica;
-	color: #000; 
-	opacity: 0.9;
-	text-align: center;	
-}
-
-#button2:hover {
-	background-color: black;
-	opacity: 0.9;
-	transition: 0.2s;
-}
-
-#button2:hover p {
-	color: white;
-	transition: 0.2s;
-}
-
 
 footer {
-  background-color: #D3D8DE;
+  background-color: #BD96FF;
   bottom: 0;
   left: 0;
   right: 0;

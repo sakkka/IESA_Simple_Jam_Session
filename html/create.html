@@ -14,6 +14,7 @@
         <script type="text/javascript" src="interface.js"></script>
         <script type="text/javascript" src="create.js"></script>
         <script type="text/javascript" src="jquery.html5Loader.js"></script>
+        <script type="text/javascript" src="connectJam.js"></script>
         <!-- client stuff 
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
         <script type="text/javascript" src="client_b.js"></script>
@@ -28,18 +29,12 @@
             </nav>
             </section>
         </header>
-
-            <aside style="float:left;">
-                <img src="logo.png"/>
-            </aside>
+         
 
         <section id="center" style="text-align:center;">
-            <form method="post" onSubmit="" action="/play">
-
-                <p><input type="text" name="nickname" placeholder="Pseudo" id="nickname"/></p>
-                <p><input type="text" name="room" placeholder="Nom room Jam" id="room"/></p>
-                <p><input type="submit" value="Jam !" /></p>
-            </form>
+                <p><input id="nickname" type="text" name="nickname" placeholder="Pseudo" id="nickname"/></p>
+                <p><input id="room" type="text" name="room" placeholder="Nom room Jam" id="room"/></p>
+                <p><input id="jamConnect" type="button" value="Jam !"/></p>       
         </section>
 
         <footer>

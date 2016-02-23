@@ -3,10 +3,11 @@ var socket = io();
 //var cookie = require('cookie');
 
 var myData = {
-	name : "guest",
-	room : "room1",
+	name : getCookie('nickname'),
+	room : getCookie('room'),
 	instrument : "bass"
 };
+
 
 function emitSound(instrument, keyCode){
 	socket.emit('sound', {
@@ -35,20 +36,21 @@ function changeInstrument(instrumentName){
 }
 
 function changeNick(nickname) {
-	nickname = $("#nickname").val();
 	console.log("changing NAME to: "+nickname);
 	socket.emit('changeNick', nickname);
 	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.name = nickname;
 }
 
-function changeRoom(room) {
-	room = $("#room").val();
+function changeRoom(room) {	
 	console.log("changing ROOM to: "+room);
 	socket.emit('changeRoom', room);
 	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.room = room;
 }
+console.log(myData.name);
+changeNick(myData.name);
+changeRoom(myData.room);
 
 // recieve messages and sounds
 if(socket != null ){
