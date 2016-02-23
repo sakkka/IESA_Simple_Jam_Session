@@ -78,7 +78,7 @@ if(socket != null ){
 	});
 
 	socket.on('sound',function(data) {		
-		playSendSound(data.instrumentName); //pad.js
+		playSendSound(data.instrumentName,data.keyCodeValue); //pad.js
 	});
 }
 

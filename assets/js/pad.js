@@ -293,10 +293,10 @@ $(document).ready(function(){
 });
 
 
-function playSendSound(nameInstrument){				
+function playSendSound(nameInstrument,keyCode){				
 		var soundSendPlayer = document.createElement("AUDIO");
       	soundSendPlayer.load();		
-		soundSendPlayer.src = arrayInstrument[nameInstrument][1];
+		soundSendPlayer.src = arrayInstrument[nameInstrument][keyCode];
 		soundSendPlayer.load();
 		soundSendPlayer.play();
 		soundSendPlayer.remove();			
