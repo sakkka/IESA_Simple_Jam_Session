@@ -179,3 +179,12 @@ function getCookie(cname) {
 	    return "";
 	}
 
+function printConnectedUsers(data) {
+	$('.user-in-list').remove();
+	for (var i=0; i<data.length; i++) {
+		$(".users-list").append('<span class="user-in-list">'+data[i][1]+'</span>');
+	}
+}
+
+
+

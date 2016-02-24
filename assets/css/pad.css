@@ -200,6 +200,19 @@ body {
 	float: left;
 }
 
+/*users list */
+
+.users-list {
+	position: absolute;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.user-in-list {
+	z-index: 1000;
+	margin-right: 10px;
+}
+
 /*Theme 1*/
 #theme1 .row1 .key {
 	background-color: #BD96FF;

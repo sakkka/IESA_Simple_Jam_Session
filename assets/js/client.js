@@ -83,7 +83,7 @@ if(socket != null ){
 
 	socket.on('connectedUsers',function(data) {		
 		console.log("Connected users : "+JSON.stringify(data.users));
-		//printConnectedUsers(data.users); //interface.js
+		printConnectedUsers(data.users); //interface.js
 	});
 }
 
