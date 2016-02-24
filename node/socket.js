@@ -65,11 +65,9 @@ module.exports = function (app){
 
 			
 			// on new client connect
-			s.join('room1');
-
 			s.broadcast.emit('msg', {
 				username : "Console",
-				txt : _that.getNameBySocketId(s)+" s'est connecté",
+				txt : "un client s'est connecté",
 				room: _that.getRoomBySocketId(s)
 			});
 
@@ -103,12 +101,14 @@ module.exports = function (app){
 			s.on('changeNick', function(content) {
 				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
 
+				/*
 				_that.emit('msg', {
 					username : "Console",
 					txt : _that.getNameBySocketId(s)+" a changé son nom par "+content,
 					room : _that.getRoomBySocketId(s)
 				});
-
+				*/
+	
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
 						_that._clients[i][1] = content;
@@ -139,9 +139,6 @@ module.exports = function (app){
 					});
 				}
 				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
-
-				
-
 
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
@@ -225,7 +222,6 @@ module.exports = function (app){
 					clients.push(_that._clients[i]);
 				}
 			}
-
 			return clients;
 		},
 
