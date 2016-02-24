@@ -1,6 +1,16 @@
 
 $(document).ready(function(){ 
 	document.cookie="instrument=bass";
+	if(!getCookie('theme')){
+		document.cookie="theme=1";
+	}else{
+		$('.pad').attr('id','theme'+getCookie('theme'));
+		$('.instrumentSelect').attr('id','theme'+getCookie('theme'));
+		var theme = $('li#t'+getCookie('theme'));
+		theme.detach();
+		$('.themeList').children().first().before(theme);
+
+	}
 	//Theme Picker
 	$('.themeList li').hover(function() {
 		$(this).css('border','2px solid white');
@@ -17,6 +27,7 @@ $(document).ready(function(){
 		    $('.themeList li').click(function(event) {
 		    	 var theme = $(this);
 		    	 $('.pad').attr('id','theme'+$(this).attr('theme'));
+		    	 document.cookie="theme="+$(this).attr('theme');
 		    	 $('.instrumentSelect').attr('id','theme'+$(this).attr('theme'));
 		    	 $('#themeSelect').animate({
 		    		height : 50
@@ -128,7 +139,7 @@ $(document).ready(function(){
 	
 });
 
-//Chat functio
+//Chat function
 var currentStateOpened = false;
 
 function addNewMsgNotification() {
@@ -156,6 +167,17 @@ function generateLink(nameRoom){
 	$('div.facebook').attr('data-href',$('#urlRoom').val());
 
 }
+//get cookie
+function getCookie(cname) {
+	    var name = cname + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0; i<ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') c = c.substring(1);
+	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+	    }
+	    return "";
+	}
 
 function printConnectedUsers(data) {
 	$('.user-in-list').remove();
