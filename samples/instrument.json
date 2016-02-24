@@ -720,6 +720,246 @@
             "instrument":"voice"
           }
       }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick1.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick2.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick3.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick4.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick5.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick6.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick7.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick8.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick9.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick10.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick11.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick12.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick13.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick14.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick15.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick16.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick17.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick18.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick19.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick20.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick21.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick22.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick23.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
+  },  
+  {
+        "type":"AUDIO",
+        "sources": {
+          "wav":{
+            "source":"rick24.wav",
+            "size":1,
+            "instrument":"rick"
+          }
+      }
   }
 
     ]

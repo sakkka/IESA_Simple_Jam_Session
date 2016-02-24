@@ -255,7 +255,30 @@ $(document).ready(function(){
       onUpdate:           function ( percentage ) {
       	$('.loading').width(percentage+'%');     	
       	
-      }
+      }      
+      	
+		});
+
+	//konami code
+	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		n = 0;
+		$(document).keydown(function (e) {
+	    	if (e.keyCode === k[n++]) {
+	        	if (n === k.length) {
+
+	            	addSpecial();
+	            	n = 0;
+	            	return false;
+	        	}
+	    	}
+	    	else {
+	        	n = 0;
+	    	}
+
+	function addSpecial(){
+		console.log('konami !');
+		$('.instrumentList ul li').last().fadeIn('fast');
+	}
 });
 
 	//Emit sound
@@ -284,3 +307,6 @@ function playSendSound(nameInstrument,keyCode){
 		soundSendPlayer.play();
 		soundSendPlayer.remove();			
 	}
+
+
+
