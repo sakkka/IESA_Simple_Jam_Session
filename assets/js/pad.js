@@ -225,39 +225,24 @@ $(document).ready(function(){
 	//Function who return cookie
 
 	//Load instrument
-	
-	
-
-	$.html5Loader({
-      filesToLoad:    'instrument.json', // this could be a JSON or simply a javascript object
-      onBeforeLoad:       function () {
-      	console.log('start');
-      },
-      onComplete:         function () {
-      	ready = true;
+	$.getJSON( "instrument.json", function( data ) {
+		  console.log(data.length);
+		  $.each( data, function( instrumentName, instrument ) {
+  			arrayInstrument[instrumentName] = {}		
+		     $.each(instrument, function(key,val){
+		     	$.ajax({url: val, success: function() {
+		     		arrayInstrument[instrumentName][key]  = val;    
+		     	}});
+		     });
+		  });		 
+		ready = true;
       	$('.loader').fadeOut(100);
       	$('.pad').fadeIn('fast');
-      	console.log('end');    
-      	console.log(arrayInstrument); 	
-
-      },
-      onElementLoaded:    function ( obj, elm) { 
-      	var sourceSound = obj.source;
-      	var instrumentname = obj.instrument;
-      	if (typeof arrayInstrument[instrumentname] == 'undefined') {
-  		arrayInstrument[instrumentname] = {}
-		}      	
-		var number =  sourceSound.match(instrumentname+"(.*).wav");
-      	arrayInstrument[instrumentname][number[1]]  = obj.source;     	
-
-
-      },
-      onUpdate:           function ( percentage ) {
-      	$('.loading').width(percentage+'%');     	
+      	console.log('end');  
       	
-      }      
-      	
-		});
+	});
+	 	
+
 
 	//konami code
 	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
