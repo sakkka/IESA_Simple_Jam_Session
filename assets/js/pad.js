@@ -1,6 +1,10 @@
 var arrayInstrument  = {};
-
 $(document).ready(function(){
+	//if no cookie then redirect to create
+	if((!getCookie('nickname'))||(!getCookie('room'))){
+		location.replace('/create');
+	}
+	
 	//KeyDown Event
 	ready = false;
 	$(document).keydown(function(event){	
@@ -194,22 +198,22 @@ $(document).ready(function(){
 		$('#'+nomTouche).css('opacity','0.6').css('transform','scale(0.9)');
 	}
 
-	function keyRelease(nomTouche){
+	function keyRelease(nomTouche){		
 		$('#'+nomTouche).css('opacity','1').css('transform','scale(1)');;
 	}
 	// init sound player
 	
 
      //Function who will play local sound 	
-	function playLocalSound(numSound){		
-		var currentInstrument = getCookie('instrument');
+	function playLocalSound(numSound){	
 		
+		var currentInstrument = getCookie('instrument');		
 		var soundPlayer = document.createElement("AUDIO");
       	soundPlayer.load();		
 		soundPlayer.src = arrayInstrument[currentInstrument][numSound];
-		soundPlayer.load();
-		soundPlayer.play();
-		soundPlayer.remove();	
+		soundPlayer.load();	
+		soundPlayer.play();	
+	 	soundPlayer.remove();	
 		emitSound(currentInstrument,numSound);
 	}
 
