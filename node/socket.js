@@ -147,7 +147,17 @@ module.exports = function (app){
 					txt : _that.getNameBySocketId(s)+" a changé son instrument par " + content,
 					room : _that.getRoomBySocketId(s)
 				});
-			})
+			});
+
+			s.on('getConnectedUsers', function(data) {
+				console.log("Sending user list to "+data.username+", for room " +data.room);
+				
+				_that.emit('connectedUsers', {
+					username : "Console",
+					data : _that.getConnectedUsers(s),
+					room : _that.getRoomBySocketId(s)
+				});
+			});
 
 		},
 
@@ -187,6 +197,11 @@ module.exports = function (app){
 					return _that._clients[i][2];
 				}
 			}
+		},
+
+		getConnectedUsers : function(s){
+			var _that = this;
+			return _that._clients;
 		}
 	}
 };

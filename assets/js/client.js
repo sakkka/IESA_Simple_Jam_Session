@@ -51,7 +51,16 @@ function changeRoom(room) {
 	myData.room = room;
 }
 
-console.log(myData.name);
+
+function getConnectedUsers() {
+	console.log("Getting connected users ....");
+	socket.emit('getConnectedUsers', {
+		username : myData.name,
+		room : myData.room
+	});
+}
+
+
 changeNick(myData.name);
 changeRoom(myData.room);
 
@@ -59,7 +68,7 @@ changeRoom(myData.room);
 if(socket != null ){
 
 	socket.on('msg', function(data) {
-		console.log("msg from "+data.username+", received: "+data.txt);
+		console.log("Msg from "+data.username+", received: "+data.txt);
 
 		addNewMsgNotification(); //interface.js
 		sendMsg(data.txt, data.username); //interface.js
@@ -67,6 +76,10 @@ if(socket != null ){
 
 	socket.on('sound',function(data) {		
 		playSendSound(data.instrumentName,data.keyCodeValue); //pad.js
+	});
+
+	socket.on('connectedUsers',function(data) {		
+		console.log("Connected users : "+JSON.stringify(data));
 	});
 }
 
