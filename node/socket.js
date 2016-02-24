@@ -217,7 +217,16 @@ module.exports = function (app){
 
 		getConnectedUsers : function(s){
 			var _that = this;
-			return _that._clients;
+			var room = _that.getRoomBySocketId(s);
+			var clients = [];
+
+			for (var i=0; i<_that._clients.length; i++) {
+				if(_that._clients[i][2] == room) {
+					clients.push(_that._clients[i]);
+				}
+			}
+
+			return clients;
 		},
 
 		isFullRoom : function (roomname) {
