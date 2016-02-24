@@ -3,7 +3,7 @@ var express = require('express');
 var exp = require('express')();
 var http = require('http');
 var path = require('path');
-var port = 3000;
+var port = 8080;
 var bodyParser  = require('body-parser');
 
 
@@ -28,6 +28,7 @@ module.exports = function() {
 
 		//create a route for index.html
 		route : function() {
+
 
 			// adding css and js files
 			exp.use(express.static(path.resolve('../assets/css')));

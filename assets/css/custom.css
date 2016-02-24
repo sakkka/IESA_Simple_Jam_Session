@@ -55,7 +55,7 @@ html, body {
 	position: absolute;
 	left: 50%;
 	margin-left: -15%;
-	top:45%;
+	top:30%;
 }
 
 .join:hover {
@@ -70,6 +70,35 @@ html, body {
 	text-align: center;
 	height: 100%;
 	font-size: 30px;
+
+}
+
+input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	width: 60%;
+	height: 30px;
+	margin-top: 30px;
+}
+
+#jamConnect {
+	background-color: #5E4B7F;
+	width: 30%;	
+	position: relative;
+	height: 50%;		
+	left: 50%;
+	margin-left: -15%;
+	border-radius: 10px;
+}
+
+#jamConnect p {
+	font-family: 'Open Sans', sans-serif;
+	color : white;
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	font-size: 30px;
+
 }
 
 footer {
@@ -97,6 +126,15 @@ footer .social {
 footer .social li {
   display: inline;
   margin: 0 5px;
+}
+
+/*  Error form */
+
+.error {
+	color: red;
+	font-family: 'Open Sans', sans-serif;
+	height: 20px;
+	text-align: center;
 }
 
 
