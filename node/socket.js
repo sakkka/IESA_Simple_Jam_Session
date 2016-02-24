@@ -119,13 +119,29 @@ module.exports = function (app){
 
 			// change room
 			s.on('changeRoom', function(content) {
+				
+				if(_that.isFullRoom(content)) {
+					s.emit('changedRoom', {
+						username : "Console",
+						canChange : false,
+						txt : "Impossible de changer de room (FULL)",
+						room : _that.getRoomBySocketId(s)
+					});
+					console.log(_that.getNameBySocketId(s)+" CANT change his ROOM to " +content+" (FULL)");
+					return;
+
+				} else {
+					s.emit('changedRoom', {
+						username : "Console",
+						canChange : true,
+						txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
+						room : content.room
+					});
+				}
 				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
 
-				_that.emit('msg', {
-					username : "Console",
-					txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
-					room : content.room
-				});
+				
+
 
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
@@ -202,6 +218,23 @@ module.exports = function (app){
 		getConnectedUsers : function(s){
 			var _that = this;
 			return _that._clients;
+		},
+
+		isFullRoom : function (roomname) {
+			var _that = this;
+			var cpt = 0;
+
+			for (var i=0; i<_that._clients.length; i++) {
+				if (_that._clients[i][2] == roomname) {
+					cpt ++;
+				}
+			}
+			if(cpt>=5) {
+				console.log("Full rooom !!! "+roomname);
+				return true;
+			}
+
+			return false;
 		}
 	}
 };

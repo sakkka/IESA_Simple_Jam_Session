@@ -47,8 +47,14 @@ function changeRoom(room) {
 
 	console.log("changing ROOM to: "+room);
 	socket.emit('changeRoom', room);
+	socket.on('changedRoom', function(data) {
+		console.log("can change room : "+JSON.stringify(data));
+		if(data.canChange) {
+			myData.room = room;
+		}
+	});
 	// A FAIRE : controle de reception changeNick -> nickChanged
-	myData.room = room;
+	
 }
 
 
