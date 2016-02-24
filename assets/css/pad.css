@@ -204,13 +204,28 @@ body {
 
 .users-list {
 	position: absolute;
-	z-index: 1000;
-	cursor: pointer;
+	width: 100%;
+	z-index: 1000;		
 }
 
+
+
+
 .user-in-list {
-	z-index: 1000;
-	margin-right: 10px;
+	list-style: none;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;		
+	border-radius: 50%;
+	background-color: #3E3E3E;
+	width: 100px;
+   	height: 100px;   
+   	-moz-border-radius: 50px; 
+   	-webkit-border-radius: 50px; 
+   	border-radius: 50px;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+		
 }
 
 /*Theme 1*/
