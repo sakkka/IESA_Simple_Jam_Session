@@ -275,8 +275,9 @@ $(document).ready(function(){
 	        	n = 0;
 	    	}
 
+	//Never gonna give you up,rick is in da place    	
 	function addSpecial(){
-		console.log('konami !');
+		console.log('Never gonna give you up,rick is in da place !');
 		$('.instrumentList ul li').last().fadeIn('fast');
 	}
 });

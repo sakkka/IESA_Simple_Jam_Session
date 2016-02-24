@@ -152,5 +152,8 @@ function sendMsg(message, user){
 //Fonction who send the cureent room and create the link for the current room
 function generateLink(nameRoom){
 	$('#urlRoom').val(location.origin+'/create?room='+nameRoom);
+	$('div.twitter a').attr('data-url',$('#urlRoom').val());
+	$('div.facebook').attr('data-href',$('#urlRoom').val());
+
 }
 
