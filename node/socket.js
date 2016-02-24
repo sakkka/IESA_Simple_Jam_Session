@@ -49,12 +49,22 @@ module.exports = function (app){
 					room : _that.getRoomBySocketId(s)
 				});
 
+				var lastRoom = _that.getRoomBySocketId(s); // saving room to send disconnection event
+
 				// deleting from client list
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
 						_that._clients.splice(i,1);	
 					}
 				}
+
+
+				// TODO !!!!!!!!!!!!!!!!!!
+				_that.emit('connectedUsers', {
+					username : "Serveur",
+					users : _that.getConnectedUsers(s),
+					room : lastRoom
+				});
 
 		 	})
 		},
@@ -91,7 +101,7 @@ module.exports = function (app){
 
 				_that.emitSound(s, 'sound', {
 					instrumentName : content.instrumentName,
-					keyCodeValue : content.keyCodeValue,	
+					keyCodeValue : content.keyCodeValue,
 					room : _that.getRoomBySocketId(s)
 				});
 				

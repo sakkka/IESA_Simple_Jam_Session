@@ -67,7 +67,6 @@ function getConnectedUsers() {
 
 changeNick(myData.name);
 changeRoom(myData.room);
-getConnectedUsers();
 
 // recieve messages, sounds and connected users
 if(socket != null ){
