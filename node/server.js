@@ -38,6 +38,8 @@ module.exports = function() {
 			exp.use(express.static(path.resolve('../samples/bass')));
 			exp.use(express.static(path.resolve('../samples/drum')));
 			exp.use(express.static(path.resolve('../samples/voice')));
+			exp.use(express.static(path.resolve('../samples/rick')));
+
 
 			exp.set('views', '../html');
 			

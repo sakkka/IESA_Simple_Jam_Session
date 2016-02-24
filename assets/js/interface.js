@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 	//set witdh for ul
 	nbInstrument = $('.instrumentList ul').children().length;
-	$('.instrumentList ul').width((nbInstrument*210)+'px');
+	$('.instrumentList ul').width(((nbInstrument+1)*210)+'px');
 	
 
 	//Scroll with mouse position	
