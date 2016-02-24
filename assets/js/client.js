@@ -30,7 +30,6 @@ function emit() {
 function changeInstrument(instrumentName){
 	console.log("changing INSTRUMENT to: "+instrumentName);
 	socket.emit('changeInstrument', instrumentName );
-	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.instrument = instrumentName ;
 }
 
@@ -38,7 +37,6 @@ function changeNick(nickname) {
 
 	console.log("changing NAME to: "+nickname);
 	socket.emit('changeNick', nickname);
-	// A FAIRE : controle de reception changeNick -> nickChanged
 	myData.name = nickname;
 }
 
@@ -47,19 +45,33 @@ function changeRoom(room) {
 
 	console.log("changing ROOM to: "+room);
 	socket.emit('changeRoom', room);
-	// A FAIRE : controle de reception changeNick -> nickChanged
-	myData.room = room;
+	socket.on('changedRoom', function(data) {
+		console.log("can change room : "+JSON.stringify(data));
+		if(data.canChange) {
+			myData.room = room;
+		}
+	});
+	
 }
 
-console.log(myData.name);
+
+function getConnectedUsers() {
+	console.log("Getting connected users ....");
+	socket.emit('getConnectedUsers', {
+		username : myData.name,
+		room : myData.room
+	});
+}
+
+
 changeNick(myData.name);
 changeRoom(myData.room);
 
-// recieve messages and sounds
+// recieve messages, sounds and connected users
 if(socket != null ){
 
 	socket.on('msg', function(data) {
-		console.log("msg from "+data.username+", received: "+data.txt);
+		console.log("Msg from "+data.username+", received: "+data.txt);
 
 		addNewMsgNotification(); //interface.js
 		sendMsg(data.txt, data.username); //interface.js
@@ -67,6 +79,11 @@ if(socket != null ){
 
 	socket.on('sound',function(data) {		
 		playSendSound(data.instrumentName,data.keyCodeValue); //pad.js
+	});
+
+	socket.on('connectedUsers',function(data) {		
+		console.log("Connected users : "+JSON.stringify(data.users));
+		//printConnectedUsers(data.users); //interface.js
 	});
 }
 
