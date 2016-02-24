@@ -44,7 +44,7 @@ module.exports = function (app){
 		 		console.log("SERVER: Client "+_that.getNameBySocketId(s)+" disconnected"); // chez le server
 				
 				_that.emit('msg', {
-					username : "Console",
+					username : "Serveur",
 					txt : _that.getNameBySocketId(s)+" s'est déconnecté", // chez le client
 					room : _that.getRoomBySocketId(s)
 				});
@@ -66,7 +66,7 @@ module.exports = function (app){
 			
 			// on new client connect
 			s.broadcast.emit('msg', {
-				username : "Console",
+				username : "Serveur",
 				txt : "un client s'est connecté",
 				room: _that.getRoomBySocketId(s)
 			});
@@ -103,7 +103,7 @@ module.exports = function (app){
 
 				/*
 				_that.emit('msg', {
-					username : "Console",
+					username : "Serveur",
 					txt : _that.getNameBySocketId(s)+" a changé son nom par "+content,
 					room : _that.getRoomBySocketId(s)
 				});
@@ -122,7 +122,7 @@ module.exports = function (app){
 				
 				if(_that.isFullRoom(content)) {
 					s.emit('changedRoom', {
-						username : "Console",
+						username : "Serveur",
 						canChange : false,
 						txt : "Impossible de changer de room (FULL)",
 						room : _that.getRoomBySocketId(s)
@@ -132,7 +132,7 @@ module.exports = function (app){
 
 				} else {
 					s.emit('changedRoom', {
-						username : "Console",
+						username : "Serveur",
 						canChange : true,
 						txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
 						room : content.room
@@ -156,7 +156,7 @@ module.exports = function (app){
 				console.log(content.room)
 				
 				_that.emit('msg', {
-					username : "Console",
+					username : "Serveur",
 					txt : _that.getNameBySocketId(s)+" a changé son instrument par " + content,
 					room : _that.getRoomBySocketId(s)
 				});
@@ -166,7 +166,7 @@ module.exports = function (app){
 				console.log("Sending user list to "+data.username+", for room " +data.room);
 				
 				_that.emit('connectedUsers', {
-					username : "Console",
+					username : "Serveur",
 					users : _that.getConnectedUsers(s),
 					room : _that.getRoomBySocketId(s)
 				});
