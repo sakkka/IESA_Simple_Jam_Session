@@ -121,7 +121,9 @@ $(document).ready(function(){
 
 	// display "join room link"
 	$(document).ready(function() {
-		generateLink(myData.room); //interface.js
+		if(location.pathname=='/play'){
+			generateLink(myData.room); //interface.js
+		}
 	});
 	
 });
@@ -149,6 +151,6 @@ function sendMsg(message, user){
 
 //Fonction who send the cureent room and create the link for the current room
 function generateLink(nameRoom){
-	$('#urlRoom').val('http://localhost:3000/create?room='+nameRoom);
+	$('#urlRoom').val(location.origin+'/create?room='+nameRoom);
 }
 
