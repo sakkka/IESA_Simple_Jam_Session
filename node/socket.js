@@ -170,7 +170,7 @@ module.exports = function (app){
 				
 				_that.emit('connectedUsers', {
 					username : "Console",
-					data : _that.getConnectedUsers(s),
+					users : _that.getConnectedUsers(s),
 					room : _that.getRoomBySocketId(s)
 				});
 			});
@@ -229,7 +229,7 @@ module.exports = function (app){
 					cpt ++;
 				}
 			}
-			if(cpt>=5) {
+			if(cpt>=5) { // room max users
 				console.log("Full rooom !!! "+roomname);
 				return true;
 			}
