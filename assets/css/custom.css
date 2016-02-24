@@ -101,6 +101,10 @@ input {
 
 }
 
+#jamConnect:hover {
+	cursor: pointer;
+}
+
 footer {
   background-color: #BD96FF;
   bottom: 0;
