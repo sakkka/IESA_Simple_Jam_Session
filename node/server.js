@@ -64,11 +64,8 @@ module.exports = function() {
 			});
 
 			exp.post('/play', function(req, res) {
-				//console.log("Sended name: "+req.body.nickname);
 
 				console.log(req.body);
-
-
 				res.sendFile(path.resolve('../html/pad.html'));
 
 
@@ -78,9 +75,7 @@ module.exports = function() {
 				} else {
 					res.sendFile(path.resolve('../html/pad.html'));
 				}
-				*/
-
-							    
+				*/	    
 			  	
 			});
 		}
