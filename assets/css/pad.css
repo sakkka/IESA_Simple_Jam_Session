@@ -349,3 +349,19 @@ body {
 #theme3 li {
 	background-color: #CB6463;
 }
+/*metronome*/
+.btn {
+  border-radius: 5px;
+  display: block;
+  background: green;
+  float: left;
+  clear: none;
+  color: white;
+  padding: 4px 8px;
+  margin: 8px 8px 8px 0;
+  cursor: pointer;
+}
+.stop {
+  background: red;
+}
+
