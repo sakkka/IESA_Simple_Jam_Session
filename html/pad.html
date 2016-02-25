@@ -16,6 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
         <script type="text/javascript" src="pad.js"></script>
+        <script type="text/javascript" src="metronome.js"></script>
         <script type="text/javascript" src="interface.js"></script>
         <script type="text/javascript" src="jquery.html5Loader.js"></script>
         <!-- client stuff -->
@@ -43,11 +44,19 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
+        
      <aside style="float:left;">
                 <img src="logo.png"/>
             </aside>
 
+
+        <div style="height:100px;">
+            <div>  
+                <input type="number" name="bpm" value="60" size="3" /> bpm
+            </div>
+            <div class="start btn">Start</div>
+            <div class="stop btn">Stop</div>
+        </div>
 
         <div id="themeSelect">
             <span id="arrowDown"></span>
