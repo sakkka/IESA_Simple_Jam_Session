@@ -1,10 +1,17 @@
 var arrayInstrument  = {};
+
+//fb 
+
+
+
 $(document).ready(function(){
 	//if no cookie then redirect to create
 	if((!getCookie('nickname'))||(!getCookie('room'))){
 		location.replace('/create');
 	}
-	
+
+	    
+
 	//KeyDown Event
 	ready = false;
 	$(document).keydown(function(event){	
