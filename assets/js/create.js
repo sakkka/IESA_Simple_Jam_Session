@@ -93,6 +93,7 @@ function testAPI() {
 			console.log("picture : ");
 			console.log(response.data.url);
 			$('#profile-img').attr("src", response.data.url);
+			
           }
         }
     );
