@@ -1,5 +1,10 @@
+var arrayInstrument  = {};
 $(document).ready(function(){
-
+	//if no cookie then redirect to create
+	if((!getCookie('nickname'))||(!getCookie('room'))){
+		location.replace('/create');
+	}
+	
 	//KeyDown Event
 	ready = false;
 	$(document).keydown(function(event){	
@@ -7,111 +12,99 @@ $(document).ready(function(){
 			switch(event.keyCode){
 				case 65:
 					keyPress('a');
-					playSound('1');
+					playLocalSound('1');
 					break;
 				case 90:
 					keyPress('z');
-					playSound('2');
+					playLocalSound('2');
 					break;	
 				case 69:
 					keyPress('e');
-					playSound('3');
+					playLocalSound('3');
 					break;
 				case 82:
 					keyPress('r');
-					playSound('4');
+					playLocalSound('4');
 					break;
 				case 84:
 					keyPress('t');
-					playSound('5');
+					playLocalSound('5');
 					break;	
 				case 89:
 					keyPress('y');
-					playSound('6');
+					playLocalSound('6');
 					break;	
 				case 85:
 					keyPress('u');
-					playSound('7');
+					playLocalSound('7');
 					break;	
 				case 73:
 					keyPress('i');
-					playSound('8');
+					playLocalSound('8');
 					break;	
 				case 79:
 					keyPress('o');
-					playSound('9');
-					break;	
-				case 80:
-					keyPress('p');
-					playSound('10');
-					break;
+					playLocalSound('9');
+					break;				
 				case 81:
 					keyPress('q');
-					playSound('11');
+					playLocalSound('10');
 					break;		
 				case 83:
 					keyPress('s');
-					playSound('12');
+					playLocalSound('11');
 					break;		
 				case 68:
 					keyPress('d');
-					playSound('13');
+					playLocalSound('12');
 					break;		
 				case 70:
 					keyPress('f');
-					playSound('14');
+					playLocalSound('13');
 					break;		
 				case 71:
 					keyPress('g');
-					playSound('15');
+					playLocalSound('14');
 					break;		
 				case 72:
 					keyPress('h');
-					playSound('16');
+					playLocalSound('15');
 					break;		
 				case 74:
 					keyPress('j');
-					playSound('17')
+					playLocalSound('16')
 					break;	
 				case 75:
 					keyPress('k');
-					playSound('18')
-					break;		
-				case 76:
-					keyPress('l');
-					playSound('19')
-					break;		
-				case 77:
-					keyPress('m');
-					playSound('20')
-					break;
+					playLocalSound('17')
+					break;	
 				case 87:
 					keyPress('w');
-					playSound('21')
+					playLocalSound('18')
 					break;	
 				case 88:
 					keyPress('x');
-					playSound('22')
+					playLocalSound('19')
 					break;	
 				case 67:
 					keyPress('c');
-					playSound('23')
+					playLocalSound('20')
 					break;	
 				case 86:
 					keyPress('v');
-					playSound('24')
+					playLocalSound('21')
 					break;	
 				case 66:
 					keyPress('b');
-					playSound('25')
+					playLocalSound('22')
 					break;	
 				case 78:
 					keyPress('n');
-					playSound('26')
+					playLocalSound('23')
 					break;
 				case 188:
 					keyPress('spe1');
-					playSound('27')
+					playLocalSound('24')
 					break;									
 				default:					
 					//do Nothing
@@ -149,10 +142,7 @@ $(document).ready(function(){
 				break;
 			case 79:
 				keyRelease('o');
-				break;
-			case 80:
-				keyRelease('p');
-				break;
+				break;		
 			case 81:
 				keyRelease('q');
 				break;		
@@ -177,12 +167,6 @@ $(document).ready(function(){
 			case 75:
 				keyRelease('k');
 				break;		
-			case 76:
-				keyRelease('l');
-				break;		
-			case 77:
-				keyRelease('m');
-				break;
 			case 87:
 				keyRelease('w');
 				break;	
@@ -214,26 +198,81 @@ $(document).ready(function(){
 		$('#'+nomTouche).css('opacity','0.6').css('transform','scale(0.9)');
 	}
 
-	function keyRelease(nomTouche){
+	function keyRelease(nomTouche){		
 		$('#'+nomTouche).css('opacity','1').css('transform','scale(1)');;
 	}
 	// init sound player
 	
 
-     //Function who will play sound 	
-	function playSound(numSound){
+     //Function who will play local sound 	
+	function playLocalSound(numSound){	
+		
+		var currentInstrument = getCookie('instrument');		
 		var soundPlayer = document.createElement("AUDIO");
-		var currentInstrument = getCookie('instrument');
       	soundPlayer.load();		
 		soundPlayer.src = arrayInstrument[currentInstrument][numSound];
-		soundPlayer.load();
-		soundPlayer.play();
-		soundPlayer.remove();		
-
-		
+		soundPlayer.load();	
+		soundPlayer.play();	
+	 	soundPlayer.remove();	
+		emitSound(currentInstrument,numSound);
 	}
 
+
+	
+
+
+
 	//Function who return cookie
+
+	//Load instrument
+	$.getJSON( "instrument.json", function( data ) {
+		  console.log(data.length);
+		  $.each( data, function( instrumentName, instrument ) {
+  			arrayInstrument[instrumentName] = {}		
+		     $.each(instrument, function(key,val){
+		     	$.ajax({url: val, success: function() {
+		     		arrayInstrument[instrumentName][key]  = val;    
+		     	}});
+		     });
+		  });		 
+		ready = true;
+      	$('.loader').fadeOut(100);
+      	$('.pad').fadeIn('fast');
+      	console.log('end');  
+      	
+	});
+	 	
+
+
+	//konami code
+	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		n = 0;
+		$(document).keydown(function (e) {
+	    	if (e.keyCode === k[n++]) {
+	        	if (n === k.length) {
+
+	            	addSpecial();
+	            	n = 0;
+	            	return false;
+	        	}
+	    	}
+	    	else {
+	        	n = 0;
+	    	}
+
+	//Never gonna give you up,rick is in da place    	
+	function addSpecial(){
+		console.log('Never gonna give you up,rick is in da place !');
+		$('.instrumentList ul li').last().fadeIn('fast');
+	}
+});
+
+	//Emit sound
+	//Function who will play recieve sound 	
+	
+
+	
+});
 	function getCookie(cname) {
 	    var name = cname + "=";
 	    var ca = document.cookie.split(';');
@@ -245,40 +284,15 @@ $(document).ready(function(){
 	    return "";
 	}
 
-	//Load instrument
-	var arrayInstrument  = {};
-	
 
-	$.html5Loader({
-      filesToLoad:    'instrument.json', // this could be a JSON or simply a javascript object
-      onBeforeLoad:       function () {
-      	console.log('start');
-      },
-      onComplete:         function () {
-      	ready = true;
-      	$('.loader').fadeOut(100);
-      	$('.pad').fadeIn('fast');
-      	console.log('end');    
-      	console.log(arrayInstrument); 	
-
-      },
-      onElementLoaded:    function ( obj, elm) { 
-      	var sourceSound = obj.source;
-      	var instrumentname = obj.instrument;
-      	if (typeof arrayInstrument[instrumentname] == 'undefined') {
-  		arrayInstrument[instrumentname] = {}
-		}      	
-		var number =  sourceSound.match(instrumentname+"(.*).wav");
-      	arrayInstrument[instrumentname][number[1]]  = obj.source;     	
+function playSendSound(nameInstrument,keyCode){				
+		var soundSendPlayer = document.createElement("AUDIO");
+      	soundSendPlayer.load();		
+		soundSendPlayer.src = arrayInstrument[nameInstrument][keyCode];
+		soundSendPlayer.load();
+		soundSendPlayer.play();
+		soundSendPlayer.remove();			
+	}
 
 
-      },
-      onUpdate:           function ( percentage ) {
-      	$('.loading').width(percentage+'%');     	
-      	
-      }
-});
 
-	//Loader
-	
-})

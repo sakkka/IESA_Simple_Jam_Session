@@ -11,7 +11,7 @@
 
 h2.shareHeader {
 	margin: 0px;
-	padding-left: 5%;
+	padding-right: 5%;
 	width: 95%;
 	background-color: #70908a;
 	color: #FFF;
@@ -19,6 +19,7 @@ h2.shareHeader {
 	cursor: pointer;
 	letter-spacing: 0.060em;
 	font-weight: lighter;
+	text-align: right;
 }
 
 .shareContent {
@@ -46,4 +47,15 @@ h2.shareHeader {
 
 .copyURL {
 	cursor: pointer;
+}
+
+.twitter {
+	margin-left: 20px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.facebook {
+	float: right;
+	margin-right: 140px;
 }

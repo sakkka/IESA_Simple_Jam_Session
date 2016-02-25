@@ -1,6 +1,16 @@
 
 $(document).ready(function(){ 
 	document.cookie="instrument=bass";
+	if(!getCookie('theme')){
+		document.cookie="theme=1";
+	}else{
+		$('.pad').attr('id','theme'+getCookie('theme'));
+		$('.instrumentSelect').attr('id','theme'+getCookie('theme'));
+		var theme = $('li#t'+getCookie('theme'));
+		theme.detach();
+		$('.themeList').children().first().before(theme);
+
+	}
 	//Theme Picker
 	$('.themeList li').hover(function() {
 		$(this).css('border','2px solid white');
@@ -17,6 +27,7 @@ $(document).ready(function(){
 		    $('.themeList li').click(function(event) {
 		    	 var theme = $(this);
 		    	 $('.pad').attr('id','theme'+$(this).attr('theme'));
+		    	 document.cookie="theme="+$(this).attr('theme');
 		    	 $('.instrumentSelect').attr('id','theme'+$(this).attr('theme'));
 		    	 $('#themeSelect').animate({
 		    		height : 50
@@ -27,7 +38,6 @@ $(document).ready(function(){
 		    });
 		  });
 	});
-
 
 	//Share
 
@@ -49,7 +59,6 @@ $(document).ready(function(){
 	});
 
 
-
 	//Instrument Select
 
 	// show/hide 
@@ -60,7 +69,7 @@ $(document).ready(function(){
 
 	//set witdh for ul
 	nbInstrument = $('.instrumentList ul').children().length;
-	$('.instrumentList ul').width((nbInstrument*210)+'px');
+	$('.instrumentList ul').width(((nbInstrument+1)*210)+'px');
 	
 
 	//Scroll with mouse position	
@@ -100,14 +109,7 @@ $(document).ready(function(){
 	});
 
 
-	//Chat
-	
-
-	function openClose() {
-
-	}
-
-
+	//Chat and notifications
 	$('.chatHeader').click(function(event) {
 		$('.chatWindow').slideToggle("fast");
 		
@@ -121,23 +123,27 @@ $(document).ready(function(){
 		}
 	});
 
-	
-
+	// send message with Enter
 	$(document).keyup(function(event){
-		if((event.keyCode==13)&&($('#inputText').val()!='')&&($(".inputMsg").is(":focus"))){
-
-			emit();
+		if((event.keyCode==13) && ($('#inputText').val()) && ($(".inputMsg").is(":focus")) ){
+			emit(); // client.js function
 		}
 	});
 
+	// display "join room link"
+	$(document).ready(function() {
+		if(location.pathname=='/play'){
+			generateLink(myData.room); //interface.js
+		}
+	});
 	
 });
 
+//Chat function
 var currentStateOpened = false;
 
 function addNewMsgNotification() {
 	if( !currentStateOpened ){
-
 		$(".chatHeader").addClass("newMsgNotification");
 	}
 }
@@ -147,10 +153,38 @@ function eraseNewMsgNotification() {
 }
 
 //Function who send message
-function sendMsg(message,user){
+function sendMsg(message, user){
 	$('.msg').append('<p><span id="user">'+user+'</span> : '+message+'</p>');
 	$('.inputMsg').val('');
 	$('.msg').animate({ scrollTop: 1000000 }, "slow");
 
 }
+
+//Fonction who send the cureent room and create the link for the current room
+function generateLink(nameRoom){
+	$('#urlRoom').val(location.origin+'/create?room='+nameRoom);
+	$('div.twitter a').attr('data-url',$('#urlRoom').val());
+	$('div.facebook').attr('data-href',$('#urlRoom').val());
+
+}
+//get cookie
+function getCookie(cname) {
+	    var name = cname + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0; i<ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') c = c.substring(1);
+	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+	    }
+	    return "";
+	}
+
+function printConnectedUsers(data) {
+	$('.user-in-list').remove();
+	for (var i=0; i<data.length; i++) {
+		$(".users-list ul").append('<li class="user-in-list">'+data[i][1]+'</span>');
+	}
+}
+
+
 

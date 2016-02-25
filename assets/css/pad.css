@@ -65,6 +65,7 @@ body {
 	width: 90%;		
 	padding: 10% 5% 5% 5%;
 	display: none;
+	height: 100%;
 }
 
 .row1 {
@@ -81,7 +82,7 @@ body {
 }
 
 .row2 {
-	padding-left: 60px;
+	padding-left: 100px;
 	display: block;
 	height: 100px;
 	width: 1050px;
@@ -97,7 +98,7 @@ body {
 }
 
 .row3 {
-	padding-left: 120px;
+	padding-left: 200px;
 	display: block;
 	height: 100px;
 	width: 1050px;
@@ -197,6 +198,34 @@ body {
 	background-color: rgba(10, 10, 30, 0.4);
 	position: absolute;
 	float: left;
+}
+
+/*users list */
+
+.users-list {
+	position: absolute;
+	width: 100%;
+	z-index: 1000;		
+}
+
+
+
+
+.user-in-list {
+	list-style: none;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;		
+	border-radius: 50%;
+	background-color: #3E3E3E;
+	width: 100px;
+   	height: 100px;   
+   	-moz-border-radius: 50px; 
+   	-webkit-border-radius: 50px; 
+   	border-radius: 50px;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+		
 }
 
 /*Theme 1*/
