@@ -218,6 +218,7 @@ $(document).ready(function(){
 	}
 
 
+	//mute fonction
 	
 
 
@@ -280,22 +281,32 @@ function removePlay(username){
 
 
 
-function playSendSound(nameInstrument,keyCode,username){	
-		$('li#'+username).addClass('play');	
-		var soundSendPlayer = document.createElement("AUDIO");
-      	soundSendPlayer.load();		
-		soundSendPlayer.src = arrayInstrument[nameInstrument][keyCode];
-		soundSendPlayer.load();
-		soundSendPlayer.play();
-		soundSendPlayer.remove();	
-		setTimeout(function() {
-    			removePlay(username);
-				}, 100);
-			
+function playSendSound(nameInstrument,keyCode,username){
+		if($('#'+username).attr('mute')!='true'){	
+			$('li#'+username).addClass('play');	
+			var soundSendPlayer = document.createElement("AUDIO");
+	      	soundSendPlayer.load();		
+			soundSendPlayer.src = arrayInstrument[nameInstrument][keyCode];
+			soundSendPlayer.load();
+			soundSendPlayer.play();
+			soundSendPlayer.remove();	
+			setTimeout(function() {
+	    			removePlay(username);
+					}, 100);
+		}		
     			
 	}
-
-
+function mute(){
+	console.log(this);
+			if($(this).attr('mute')=='true'){
+				$(this).attr('mute','false');
+				$(this).children('.mute').css('background-position','top');
+			}else{
+				$(this).attr('mute','true');
+				$(this).children('.mute').css('background-position','bottom');
+			}		
+			
+}
 
 
 
