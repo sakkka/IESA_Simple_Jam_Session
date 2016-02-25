@@ -141,7 +141,36 @@ footer .social li {
 	text-align: center;
 }
 
+/* cookie alert */
+.alerteCookie {
 
+	width: 100%;
+	position: absolute;
+	z-index: 200;
+	background-color: rgba(30,30,30,0.7);
+	height: 5%;
+
+}
+
+.alerteCookie p {
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: white;
+
+}
+
+.alerteCookie p span {
+	float: right;
+	font-size: 30px;
+	margin: 0px 30px;
+}
+
+.alerteCookie p span:hover {
+	cursor: pointer;
+}
 
 /*facebook log in */
 .fb_iframe_widget{
