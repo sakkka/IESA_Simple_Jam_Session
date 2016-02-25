@@ -1,6 +1,5 @@
 
 var socket = io();
-//var cookie = require('cookie');
 
 var myData = {
 	name : getCookie('nickname'),
@@ -52,9 +51,7 @@ function changeRoom(room) {
 			myData.room = room;
 		}
 	});
-	
 }
-
 
 function getConnectedUsers() {
 	console.log("Getting connected users ....");
@@ -88,5 +85,7 @@ if(socket != null ){
 		console.log("Connected users : "+JSON.stringify(data.users));
 		printConnectedUsers(data.users); //interface.js
 	});
+} else {
+	console.log("SOCKET NULL");
 }
 

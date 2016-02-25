@@ -153,7 +153,7 @@ module.exports = function (app){
 				
 				_that.emit('connectedUsers', {
 					username : "Serveur",
-					users : app.utils.getConnectedUsers(s),
+					users : app.utils.getUsersByRoom(data.room),
 					room : data.room
 				});
 
