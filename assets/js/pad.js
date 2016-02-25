@@ -289,7 +289,7 @@ function removePlay(username){
 
 
 function playSendSound(nameInstrument,keyCode,username){
-		if($('#'+username).attr('mute')!='true'){	
+		if($('#'+username.replace(" ", "_");).attr('mute')!='true'){	
 			$('li#'+username).addClass('play');	
 			var soundSendPlayer = document.createElement("AUDIO");
 	      	soundSendPlayer.load();		
@@ -304,7 +304,6 @@ function playSendSound(nameInstrument,keyCode,username){
     			
 	}
 function mute(){
-	console.log(this);
 			if($(this).attr('mute')=='true'){
 				$(this).attr('mute','false');
 				$(this).children('.mute').css('background-position','top');

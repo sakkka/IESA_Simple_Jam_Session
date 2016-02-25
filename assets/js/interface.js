@@ -189,7 +189,7 @@ function getCookie(cname) {
 function printConnectedUsers(data) {
 	$('.user-in-list').remove();
 	for (var i=0; i<data.length; i++) {
-		$(".users-list ul").append('<li id="'+data[i][1]+'" mute="false" class="user-in-list"><span>'+data[i][1]+'</span><div class="mute"></div></li>');
+		$(".users-list ul").append('<li id="'+data[i][1].replace(" ", "_");+'" mute="false" class="user-in-list"><span>'+data[i][1]+'</span><div class="mute"></div></li>');
 		document.getElementById(data[i][1]).addEventListener("click",mute);
 	}
 }
