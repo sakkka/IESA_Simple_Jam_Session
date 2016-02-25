@@ -289,7 +289,7 @@ function removePlay(username){
 
 
 function playSendSound(nameInstrument,keyCode,username){
-		if($('#'+username.replace(" ", "_");).attr('mute')!='true'){	
+		if($('#'+username.replace(" ", "_")).attr('mute')!='true'){	
 			$('li#'+username).addClass('play');	
 			var soundSendPlayer = document.createElement("AUDIO");
 	      	soundSendPlayer.load();		
