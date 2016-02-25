@@ -87,12 +87,13 @@ module.exports = function (app){
 
 			//receive sound
 			s.broadcast.on('sound', function(content) {
-				console.log("Received sound : "+content.instrumentName+" with key :"+ content.keyCodeValue +" for the room" + content.room);
+				console.log("User : "+content.username+" send sound : "+content.instrumentName+" with key :"+ content.keyCodeValue +" for the room" + content.room);
 
 				_that.emitSound(s, 'sound', {
 					instrumentName : content.instrumentName,
 					keyCodeValue : content.keyCodeValue,	
-					room : _that.getRoomBySocketId(s)
+					room : _that.getRoomBySocketId(s),
+					username : _that.getNameBySocketId(s)
 				});
 				
 			});
