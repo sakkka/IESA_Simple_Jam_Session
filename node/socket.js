@@ -25,8 +25,6 @@ module.exports = function (app){
 				
 				// add client to list
 				_that._clients.push([sessionid, "guest", "room1"]);
-				console.log("SERVER: List: "+JSON.stringify(_that._clients));
-
 				// listen to incomming msg
 				_that.listen(socket);
 				// listen to disconnect
@@ -70,13 +68,6 @@ module.exports = function (app){
 		listen : function(s) {
 			var _that = this;
 			var sessionid = s.id;
-			
-			// on new client connect
-			s.broadcast.emit('msg', {
-				username : "Serveur",
-				txt : "un client s'est connecté",
-				room: app.utils.getRoomBySocketId(s)
-			});
 
 			// receive msg
 			s.broadcast.on('msg', function(content) {
@@ -163,8 +154,11 @@ module.exports = function (app){
 				_that.emit('connectedUsers', {
 					username : "Serveur",
 					users : app.utils.getConnectedUsers(s),
-					room : app.utils.getRoomBySocketId(s)
+					room : data.room
 				});
+
+				console.log("SERVER: List: "+JSON.stringify(_that._clients));
+
 			});
 
 		},

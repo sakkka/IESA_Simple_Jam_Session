@@ -6,8 +6,6 @@ module.exports = function (app){
 		_maxUsersByRoom : 5,
 
 		getNameBySocketId : function(s) {
-
-
 			var sessionid = s.id;
 
 			for (var i=0; i<app.socket._clients.length; i++) {
@@ -18,7 +16,6 @@ module.exports = function (app){
 		},
 
 		getRoomBySocketId : function(s){
-
 			var sessionid = s.id;
 
 			for (var i=0; i<app.socket._clients.length; i++) {
@@ -40,7 +37,6 @@ module.exports = function (app){
 		},
 
 		getConnectedUsers : function(s){
-
 			var room = this.getRoomBySocketId(s);
 			var clients = [];
 
