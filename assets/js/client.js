@@ -13,7 +13,8 @@ function emitSound(instrument, keyCode){
 	socket.emit('sound', {
 		instrumentName : instrument,
 		keyCodeValue : keyCode,
-		room : myData.room
+		room : myData.room,
+		username : myData.name
 	});
 }
 
@@ -50,7 +51,6 @@ function changeRoom(room) {
 		if(data.canChange) {
 			myData.room = room;
 		}
-		getConnectedUsers();
 	});
 	
 }
@@ -67,6 +67,7 @@ function getConnectedUsers() {
 
 changeNick(myData.name);
 changeRoom(myData.room);
+
 getConnectedUsers();
 
 // recieve messages, sounds and connected users
@@ -80,7 +81,7 @@ if(socket != null ){
 	});
 
 	socket.on('sound',function(data) {		
-		playSendSound(data.instrumentName,data.keyCodeValue); //pad.js
+		playSendSound(data.instrumentName,data.keyCodeValue,data.username); //pad.js
 	});
 
 	socket.on('connectedUsers',function(data) {		
