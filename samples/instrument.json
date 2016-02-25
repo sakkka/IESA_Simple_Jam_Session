@@ -102,5 +102,31 @@
       "22":"rick22.wav",
       "23":"rick23.wav",
       "24":"rick24.wav"
-      }      
+      },
+    "piano":{
+      "1":"piano1.wav",
+      "2":"piano2.wav",
+      "3":"piano3.wav",
+      "4":"piano4.wav",
+      "5":"piano5.wav",
+      "6":"piano6.wav",
+      "7":"piano7.wav",
+      "8":"piano8.wav",
+      "9":"piano9.wav",
+      "10":"piano10.wav",
+      "11":"piano11.wav",
+      "12":"piano12.wav",
+      "13":"piano13.wav",
+      "14":"piano14.wav",
+      "15":"piano15.wav",
+      "16":"piano16.wav",
+      "17":"piano17.wav",
+      "18":"piano18.wav",
+      "19":"piano19.wav",
+      "20":"piano20.wav",
+      "21":"piano21.wav",
+      "22":"piano22.wav",
+      "23":"piano23.wav",
+      "24":"piano24.wav"
+      }         
 }
