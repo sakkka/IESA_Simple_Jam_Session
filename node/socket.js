@@ -41,15 +41,14 @@ module.exports = function (app){
 		 	s.on('disconnect', function() {
 		 		var sessionid = s.id;
 
-		 		console.log("SERVER: Client "+_that.getNameBySocketId(s)+" disconnected"); // chez le server
+		 		console.log("SERVER: Client "+app.utils.getNameBySocketId(s)+" disconnected"); // chez le server
 
-		 		// TODO !!!!!!!!!!!!!!!!!!
 		 		_that.emit('msg', {
 					username : "Serveur",
-					txt : _that.getNameBySocketId(s)+" s'est déconnecté", // chez le client
-					room : _that.getRoomBySocketId(s)
+					txt : app.utils.getNameBySocketId(s)+" s'est déconnecté", // chez le client
+					room : app.utils.getRoomBySocketId(s)
 				});
-				var saveRoom = _that.getRoomBySocketId(s); // saving room to send disconnection event
+				var savedRoom = app.utils.getRoomBySocketId(s); // saving room to send disconnection event
 
 		 		// deleting from client list
 				for (var i=0; i<_that._clients.length; i++) {
@@ -61,8 +60,8 @@ module.exports = function (app){
 				// sending users left in room
 				_that.emit('connectedUsers', {
 					username : "Serveur",
-					users : _that.getUsersByRoom(saveRoom),
-					room : saveRoom
+					users : app.utils.getUsersByRoom(savedRoom),
+					room : savedRoom
 				});
 				
 		 	});
@@ -76,21 +75,14 @@ module.exports = function (app){
 			s.broadcast.emit('msg', {
 				username : "Serveur",
 				txt : "un client s'est connecté",
-				room: _that.getRoomBySocketId(s)
+				room: app.utils.getRoomBySocketId(s)
 			});
 
 			// receive msg
 			s.broadcast.on('msg', function(content) {
 
-				console.log("Received msg from: "+_that.getNameBySocketId(s)+", content: "+content.txt+", for: "+content.room);
-
-				var contentWithSender = {
-					username : _that.getNameBySocketId(s), 
-					txt : content.txt,
-					room : _that.getRoomBySocketId(s)
-				};
-
-				_that.emit('msg', contentWithSender);
+				console.log("Received msg from: "+content.username+", content: "+content.txt+", for: "+content.room);
+				_that.emit('msg', content);
 			});
 
 			//receive sound
@@ -99,10 +91,9 @@ module.exports = function (app){
 
 				_that.emitSound(s, 'sound', {
 					instrumentName : content.instrumentName,
-
 					keyCodeValue : content.keyCodeValue,	
-					room : _that.getRoomBySocketId(s),
-					username : _that.getNameBySocketId(s)
+					room : app.utils.getRoomBySocketId(s),
+					username : app.utils.getNameBySocketId(s)
 
 				});
 				
@@ -110,15 +101,7 @@ module.exports = function (app){
 
 			// change nick
 			s.on('changeNick', function(content) {
-				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
-
-				/*
-				_that.emit('msg', {
-					username : "Serveur",
-					txt : _that.getNameBySocketId(s)+" a changé son nom par "+content,
-					room : _that.getRoomBySocketId(s)
-				});
-				*/
+				console.log(app.utils.getNameBySocketId(s)+" changed his nickname to " +content);
 	
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
@@ -131,25 +114,25 @@ module.exports = function (app){
 			// change room
 			s.on('changeRoom', function(content) {
 				
-				if(_that.isFullRoom(content)) {
+				if(app.utils.isFullRoom(content)) {
 					s.emit('changedRoom', {
 						username : "Serveur",
 						canChange : false,
 						txt : "Impossible de changer de room (FULL)",
-						room : _that.getRoomBySocketId(s)
+						room : app.utils.getRoomBySocketId(s)
 					});
-					console.log(_that.getNameBySocketId(s)+" CANT change his ROOM to " +content+" (FULL)");
+					console.log(app.utils.getNameBySocketId(s)+" CANT change his ROOM to " +content+" (FULL)");
 					return;
 
 				} else {
 					s.emit('changedRoom', {
 						username : "Serveur",
 						canChange : true,
-						txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
+						txt : app.utils.getNameBySocketId(s)+" a changé sa ROOM par "+content,
 						room : content.room
 					});
 				}
-				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
+				console.log(app.utils.getNameBySocketId(s)+" changed his ROOM to " +content);
 
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
@@ -157,19 +140,19 @@ module.exports = function (app){
 					}
 				}
 
-				s.leave(_that.getRoomBySocketId(s));
+				s.leave(app.utils.getRoomBySocketId(s));
 				s.join(content);
 			});
 
 			//change instrument
 			s.on('changeInstrument', function(content) {
-				console.log(_that.getNameBySocketId(s)+" change his instrument to " +content);
+				console.log(app.utils.getNameBySocketId(s)+" change his instrument to " +content);
 				console.log(content.room)
 				
 				_that.emit('msg', {
 					username : "Serveur",
-					txt : _that.getNameBySocketId(s)+" a changé son instrument par " + content,
-					room : _that.getRoomBySocketId(s)
+					txt : app.utils.getNameBySocketId(s)+" a changé son instrument par " + content,
+					room : app.utils.getRoomBySocketId(s)
 				});
 			});
 
@@ -179,90 +162,21 @@ module.exports = function (app){
 				
 				_that.emit('connectedUsers', {
 					username : "Serveur",
-					users : _that.getConnectedUsers(s),
-					room : _that.getRoomBySocketId(s)
+					users : app.utils.getConnectedUsers(s),
+					room : app.utils.getRoomBySocketId(s)
 				});
 			});
 
 		},
 
 		emit : function (chan, data) {
-			//console.log("EMIT : "+JSON.stringify(data));
-			
-			this._io.in(data.room).emit(chan, data);
-			
-			//this._io.emit(chan, data.content);
+			// emit any message etc
+			this._io.in(data.room).emit(chan, data);	
 		},
 
 		emitSound : function (s, chan, data) {
-			//send the code for the sound
+			// send the code for the sound
 			s.broadcast.to(data.room).emit(chan, data);
-		},
-
-
-		getNameBySocketId : function(s) {
-			var _that = this;
-
-			var sessionid = s.id;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][0] == sessionid) {
-					return _that._clients[i][1];
-				}
-			}
-		},
-
-		getRoomBySocketId : function(s){
-			var _that = this;
-
-			var sessionid = s.id;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][0] == sessionid) {
-					return _that._clients[i][2];
-				}
-			}
-		},
-
-		getUsersByRoom : function(room) {
-			var _that = this;
-			var clients = [];
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][2] == room) {
-					clients.push(_that._clients[i]);
-				}
-			}
-			return clients;
-		},
-
-		getConnectedUsers : function(s){
-			var _that = this;
-			var room = _that.getRoomBySocketId(s);
-			var clients = [];
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][2] == room) {
-					clients.push(_that._clients[i]);
-				}
-			}
-			return clients;
-		},
-
-		isFullRoom : function (roomname) {
-			var _that = this;
-			var cpt = 0;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if (_that._clients[i][2] == roomname) {
-					cpt ++;
-				}
-			}
-			if(cpt>=5) { // room max users
-				console.log("Full rooom !!! "+roomname);
-				return true;
-			}
-
-			return false;
 		}
 	}
 };
