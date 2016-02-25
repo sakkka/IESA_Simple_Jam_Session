@@ -3,7 +3,7 @@ var express = require('express');
 var exp = require('express')();
 var http = require('http');
 var path = require('path');
-var port = 3000;
+var port = 8080;
 var bodyParser  = require('body-parser');
 
 
@@ -29,10 +29,19 @@ module.exports = function() {
 		//create a route for index.html
 		route : function() {
 
+
 			// adding css and js files
 			exp.use(express.static(path.resolve('../assets/css')));
 			exp.use(express.static(path.resolve('../assets/js')));
 			exp.use(express.static(path.resolve('../assets/img')));
+			exp.use(express.static(path.resolve('../samples')));
+			exp.use(express.static(path.resolve('../samples/bass')));
+			exp.use(express.static(path.resolve('../samples/drum')));
+			exp.use(express.static(path.resolve('../samples/voice')));
+			exp.use(express.static(path.resolve('../samples/rick')));
+
+
+			exp.set('views', '../html');
 			
 			//conf
 			exp.use(bodyParser.urlencoded({
@@ -58,17 +67,19 @@ module.exports = function() {
 			});
 
 			exp.post('/play', function(req, res) {
-				//console.log("Sended name: "+req.body.nickname);
 
-				var user = req.body.nickname;
-			    //var renderedFile = path.resolve('../html/pad.html');
+				console.log(req.body);
+				res.sendFile(path.resolve('../html/pad.html'));
 
-			    console.log(user);
 
-			    // RENDER PAD PAGE WITH VARS NAME AND ROOM
-			    //res.render("pad.html", { user:user } );
-
-			  	res.sendFile(path.resolve('../html/pad.html'));
+				/*
+				if(isEmpty(req.body) {
+					res.sendFile(path.resolve('../html/index.html'));
+				} else {
+					res.sendFile(path.resolve('../html/pad.html'));
+				}
+				*/	    
+			  	
 			});
 		}
 	}

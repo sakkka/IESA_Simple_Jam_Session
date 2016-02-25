@@ -1,4 +1,9 @@
 <!doctype html>
+<!-- /*******************************************************************************/
+     /                                                                               /
+     /                         Let's try the konami code                             /
+     /                                                                               /
+     /*******************************************************************************/     -->
 <html lang="">
     <head>
         <meta charset="utf-8">
@@ -10,6 +15,7 @@
         <link rel="stylesheet" href="pad.css">
         <link rel="stylesheet" href="chat.css">
         <link rel="stylesheet" href="themeSelect.css">
+        <link rel="stylesheet" href="share.css">
         <title>Simple Jam Session</title>
         <meta name="description" content="On-line jamming app">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -20,11 +26,23 @@
         <!-- client stuff -->
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
         <script type="text/javascript" src="client.js"></script>
-        <script type="text/javascript" src="js/pad.js"></script>
-        <script type="text/javascript" src="js/interface.js"></script>
-        <script type="text/javascript" src="js/audioApi.js"></script>
+        <!-- Twitter/Facebook stuff -->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>        
+        <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+
     </head>
     <body>
+
+
         <div id="themeSelect">
             <span id="arrowDown"></span>
             <ul class="themeList">
@@ -43,6 +61,14 @@
             </ul>
             
         </div>
+        <div class="loader" >
+            <div class="containerLoader">
+                <div class="loading"></div>
+            </div>
+        </div>
+        <div class="users-list">
+            <ul></ul>
+        </div>
         <div class="pad" id="theme1">
             <div class="row1">
                 <div class="key" id="a"></div>
@@ -54,7 +80,6 @@
                 <div class="key" id="u"></div>
                 <div class="key" id="i"></div>
                 <div class="key" id="o"></div>
-                <div class="key" id="p"></div>
             </div>
             <div class="row2">
                 <div class="key" id ="q"></div>
@@ -65,8 +90,6 @@
                 <div class="key" id ="h"></div>
                 <div class="key" id ="j"></div>
                 <div class="key" id ="k"></div>
-                <div class="key" id ="l"></div>
-                <div class="key" id ="m"></div>
             </div>    
             <div class="row3">
                 <div class="key"id="w"></div>
@@ -76,8 +99,7 @@
                 <div class="key"id="b"></div>
                 <div class="key"id="n"></div>
                 <div class="key"id="spe1"></div>
-                <div class="key"id="spe2"></div>
-                <div class="key"id="spe3"></div>
+    
             </div>
         </div>   
             <div class="chatRoom">
@@ -89,20 +111,34 @@
                     <div class="sendMsg" onclick="emit()">Envoyer</div>
                 </div>                  
             </div>
+            <div class="shareRoom">
+                <h2 class="shareHeader">Invitez vos amis</h2>
+                <div class="shareContent">
+                    <input type="text" id="urlRoom" ></input>
+                    <div class="copyURL">Copier</div>
+                    <div class="twitter">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-text="Let's jam together !" data-lang="fr" data-hashtags="SimpleJamSession">Tweeter</a>
+                    </div>      
+                    <div class="facebook">
+                        <div class="fb-share-button" data-href="" data-layout="button"></div>
+                    </div>
+                </div>    
+            </div>    
             <div id="theme1" class="instrumentSelect">
-                <div class="arrowIn"><h2>Instruments</h2></div>
+                <div class="arrowIn">
+                    <h2 class="instrumentHeader">Instruments</h2>
+                </div>
                 <div class="instrumentList">
                     <ul>
-                        <li class="active"><img src="sax.png" /><p class="nameInstrument">Saxophone</p></li>
-                        <li><img src="djembe.png" /><p class="nameInstrument">Djembe</p></li>
-                        <li><img src="guitar1.png" /><p class="nameInstrument">Guitar</p></li>
-                        <li><img src="guitar2.png" /><p class="nameInstrument">Guitar</p></li>
-                        <li><img src="horn.png" /><p class="nameInstrument">Horn</p></li>
-                        <li><img src="maracas.png" /><p class="nameInstrument">Maracas</p></li>
-                        <li><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
+                        <li class="active" instrument="bass"><img src="guitar2.png" /><p class="nameInstrument">Bass</p></li>
+                        <li instrument="voice"><img src="maracas.png" /><p class="nameInstrument">Voice</p></li>
+                        <li instrument="drums"><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
+                        <!-- Must stay the last -->
+                        <li instrument="rick" style="display:none;"><img src="rick.png" /><p class="nameInstrument">Rick</p></li>
                     </ul>
                 </div>
             </div>   
+            
     
     </body>
 </html>
