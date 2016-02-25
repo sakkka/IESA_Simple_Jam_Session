@@ -51,7 +51,6 @@ function changeRoom(room) {
 		if(data.canChange) {
 			myData.room = room;
 		}
-		getConnectedUsers();
 	});
 	
 }
@@ -68,6 +67,7 @@ function getConnectedUsers() {
 
 changeNick(myData.name);
 changeRoom(myData.room);
+
 getConnectedUsers();
 
 // recieve messages, sounds and connected users

@@ -42,27 +42,35 @@ module.exports = function (app){
 		 		var sessionid = s.id;
 
 		 		console.log("SERVER: Client "+_that.getNameBySocketId(s)+" disconnected"); // chez le server
-				
-				_that.emit('msg', {
+
+		 		// TODO !!!!!!!!!!!!!!!!!!
+		 		_that.emit('msg', {
 					username : "Serveur",
 					txt : _that.getNameBySocketId(s)+" s'est déconnecté", // chez le client
 					room : _that.getRoomBySocketId(s)
 				});
+				var saveRoom = _that.getRoomBySocketId(s); // saving room to send disconnection event
 
-				// deleting from client list
+		 		// deleting from client list
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
 						_that._clients.splice(i,1);	
 					}
 				}
 
-		 	})
+				// sending users left in room
+				_that.emit('connectedUsers', {
+					username : "Serveur",
+					users : _that.getUsersByRoom(saveRoom),
+					room : saveRoom
+				});
+				
+		 	});
 		},
 
 		listen : function(s) {
 			var _that = this;
 			var sessionid = s.id;
-
 			
 			// on new client connect
 			s.broadcast.emit('msg', {
@@ -91,9 +99,11 @@ module.exports = function (app){
 
 				_that.emitSound(s, 'sound', {
 					instrumentName : content.instrumentName,
+
 					keyCodeValue : content.keyCodeValue,	
 					room : _that.getRoomBySocketId(s),
 					username : _that.getNameBySocketId(s)
+
 				});
 				
 			});
@@ -163,6 +173,7 @@ module.exports = function (app){
 				});
 			});
 
+			// send a list of conenected users in the room
 			s.on('getConnectedUsers', function(data) {
 				console.log("Sending user list to "+data.username+", for room " +data.room);
 				
@@ -211,6 +222,17 @@ module.exports = function (app){
 					return _that._clients[i][2];
 				}
 			}
+		},
+
+		getUsersByRoom : function(room) {
+			var _that = this;
+			var clients = [];
+			for (var i=0; i<_that._clients.length; i++) {
+				if(_that._clients[i][2] == room) {
+					clients.push(_that._clients[i]);
+				}
+			}
+			return clients;
 		},
 
 		getConnectedUsers : function(s){
