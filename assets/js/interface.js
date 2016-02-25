@@ -39,6 +39,12 @@ $(document).ready(function(){
 		  });
 	});
 
+	//Close cookie alert
+
+	$('#close').click(function(){
+		$('.alerteCookie').slideToggle('fast');
+	})
+
 	//Share
 
 	//show/hide 
