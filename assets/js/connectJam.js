@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	$('#jamConnect').click(function(){
+	$('#jamConnect').click(function (){
 		$('.error').text('');
 		if(( $('#room').val()!='' )&&( $('#nickname').val()!='') ){
 			document.cookie="nickname="+$('#nickname').val();
@@ -21,4 +21,12 @@ $(document).ready(function() {
 				})	
 		}
 	});
-})
+	//connect with enter
+	$(document).keyup(function(event){
+		if( event.keyCode==13 ){
+			console.log("ENTER !!");
+			$('#jamConnect').click();
+		}
+	});
+
+});

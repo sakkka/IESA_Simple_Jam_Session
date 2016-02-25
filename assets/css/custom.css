@@ -175,10 +175,5 @@ footer .social li {
 /*facebook log in */
 .fb_iframe_widget{
     text-align: center;
-    width: 30%;
-    position: absolute !important;
-    left: 50%;
-    margin-left: -15%;
-    top: 30%;
-    border-radius: 10px;
+    width: 100%;
 }

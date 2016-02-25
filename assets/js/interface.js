@@ -173,6 +173,7 @@ function generateLink(nameRoom){
 	$('div.facebook').attr('data-href',$('#urlRoom').val());
 
 }
+
 //get cookie
 function getCookie(cname) {
 	    var name = cname + "=";
