@@ -155,5 +155,31 @@
       "22":"guitar22.mp3",
       "23":"guitar23.mp3",
       "24":"guitar24.mp3"
-      }         
+      },
+    "bassgrowl":{
+      "1":"BassGrowl1.wav",
+      "2":"BassGrowl2.wav",
+      "3":"BassGrowl3.wav",
+      "4":"BassGrowl4.wav",
+      "5":"BassGrowl5.wav",
+      "6":"BassGrowl6.wav",
+      "7":"BassGrowl7.wav",
+      "8":"BassGrowl8.wav",
+      "9":"BassGrowl9.wav",
+      "10":"BassGrowl10.wav",
+      "11":"BassGrowl11.wav",
+      "12":"BassGrowl12.wav",
+      "13":"BassGrowl13.wav",
+      "14":"BassGrowl14.wav",
+      "15":"BassGrowl15.wav",
+      "16":"BassGrowl16.wav",
+      "17":"BassGrowl17.wav",
+      "18":"BassGrowl18.wav",
+      "19":"BassGrowl19.wav",
+      "20":"BassGrowl20.wav",
+      "21":"BassGrowl21.wav",
+      "22":"BassGrowl22.wav",
+      "23":"BassGrowl23.wav",
+      "24":"BassGrowl24.wav"
+      }          
 }
