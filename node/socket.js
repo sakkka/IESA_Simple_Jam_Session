@@ -78,7 +78,7 @@ module.exports = function (app){
 
 			//receive sound
 			s.broadcast.on('sound', function(content) {
-				console.log("User : "+content.username+" send sound : "+content.instrumentName+" with key :"+ content.keyCodeValue +" for the room" + content.room);
+			
 
 				_that.emitSound(s, 'sound', {
 					instrumentName : content.instrumentName,
