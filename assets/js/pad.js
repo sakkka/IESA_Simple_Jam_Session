@@ -234,22 +234,43 @@ $(document).ready(function(){
 
 	//Load instrument
 	$.getJSON( "instrument.json", function( data ) {
-		  console.log(data.length);
+		var i = 0;
+		var j = 0;			
 		  $.each( data, function( instrumentName, instrument ) {
-  			arrayInstrument[instrumentName] = {}		
+  			arrayInstrument[instrumentName] = {}	
+
 		     $.each(instrument, function(key,val){
-		     	$.ajax({url: val, success: function() {
-		     		arrayInstrument[instrumentName][key]  = val;    
-		     	}});
+		     	i++; 
+		     	});
+		     	
+		     	$.each(instrument, function(key,val){
+		     	$.ajax({url: val, 
+		     		success: function() {
+		     			arrayInstrument[instrumentName][key]  = val; 
+		     			j++;  
+		     			
+		     		},
+		     		complete: function(){
+		     			if(j==i){
+		     				ready = true;
+					      	$('.loader').fadeOut(100);
+					      	$('.pad').fadeIn('fast');
+					      	console.log('end');  
+		     			}
+		     		}
+		     	}
+
+		     );
 		     });
 		  });		 
-		ready = true;
-      	$('.loader').fadeOut(100);
-      	$('.pad').fadeIn('fast');
-      	console.log('end');  
+		
       	
 	});
 	 	
+
+	 	$( document ).ajaxComplete(function( event,request, settings ) {
+  $( "#msg" ).append( "<li>Request Complete.</li>" );
+});
 
 
 	//konami code
