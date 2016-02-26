@@ -22,7 +22,7 @@ html, body {
 	height: 100%;	
 	margin: 0;
 	padding: 0;
-	background-color:#FFFDD5;
+	background-color: #E7E6E8;
 	}
 
 .logo {
@@ -70,6 +70,7 @@ html, body {
 	text-align: center;
 	height: 100%;
 	font-size: 30px;
+	margin-top: 12px;
 
 }
 
@@ -98,7 +99,6 @@ input {
 	text-align: center;
 	height: 100%;
 	font-size: 30px;
-
 }
 
 #jamConnect:hover {
@@ -106,7 +106,7 @@ input {
 }
 
 footer {
-  background-color: #BD96FF;
+  background-color: #98C6D9;
   bottom: 0;
   left: 0;
   right: 0;
@@ -176,4 +176,10 @@ footer .social li {
 .fb_iframe_widget{
     text-align: center;
     width: 100%;
+}
+
+.fb-login-button {
+	margin-top: 16%;
+	cursor: pointer;
+	
 }

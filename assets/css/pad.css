@@ -71,7 +71,7 @@ body {
 	width: 90%;		
 	padding: 0% 5% 5% 5%;
 	height: 100%;
-	background-color: #FFFDD5;
+	background-color: #F0EDF2;
 }
 
 /**** Pad ******/
@@ -142,7 +142,7 @@ body {
 }
 
 .arrowIn h2 {
-	background-color: #70908a;
+	background-color: #98C6D9;
 	color: #FFF;
 	margin: 0;
 	text-align: center;
@@ -246,8 +246,9 @@ body {
    	-webkit-border-radius: 50px; 
    	border-radius: 50px;
 	color: white;
+	text-transform: uppercase;
 	text-align: center;
-	line-height: 20px;
+	line-height: 40px;
 		
 }
 
@@ -275,7 +276,7 @@ body {
 }
 
 #theme1 {		
-	background-color: #FFFDD5;
+	background-color: #E7E6E8;
 }
 
 #theme1 .row2 .key {
@@ -291,7 +292,7 @@ body {
 }
 
 #theme1 li {
-	background-color: #FFFDD5;
+	background-color: #E7E6E8;
 }
 /*  Theme 2  */
 #theme2 .row1 .key {
