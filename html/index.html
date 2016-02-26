@@ -1,54 +1,42 @@
 <!doctype html>
-<html lang="">
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="custom.css">
-        <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <title>Simple Jam Session</title>
         <meta name="description" content="On-line jamming app"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="connectJam.js"></script>
+        <link rel="stylesheet" href="custom.css">
     </head>
-    
-    <body>
-        <header>
-            <section>
-            <nav style="float:right;">
-                <a href="index.html">Accueil</a>
-            </nav>
-            </section>
-        </header>
-            
-            <aside style="float:left;">
-                <img src="logo.png"/>
-            </aside>
-    
 
-        <section id="center" style="text-align:center;">
-            <div class="header">
-                <img src="bandeau.png">
-            </div>
-            
-            <div id="createjam">
-                <a href="create"><p>Créer une Jam session!</p></a>
-            </div>
+  <body>  
+    <div class="alerteCookie">
+      
+      <p>En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de Cookies<span id="close">x</span></p>
+    </div>
+    <div class ="logo">
+      <img src="unicorn_guitar.png">
+    </div>
+    <a href="/create">
+      <div class="join">
+          <p>Let's jam !</p>
+      </div>
+    </a>
 
-            <div id="button2" type="submit">
-                <p>Rejoindre une Jam session!</p>
-            </div>
-
-        </section>
-    
-        <footer>
-        <div class="social">
-          <ul>
-              <li><a href="http://facebook.com"><img src="fb.png"></a></li>
-              <li><a href="http://twitter.com"><img src="twitter.png"></a></li>
-              <li><a href="http://googleplus.com"><img src="google.png"></a></li>
-          </ul>
-          </div>
-        </footer>
-    </body>
+              
+    <footer>
+      <div class="social">
+        <ul>
+          <li><a href="http://facebook.com"><img src="fb.png"></a></li>
+          <li><a href="http://twitter.com"><img src="twitter.png"></a></li>
+          <li><a href="http://googleplus.com"><img src="google.png"></a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 
 </html>

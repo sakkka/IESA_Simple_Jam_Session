@@ -25,8 +25,6 @@ module.exports = function (app){
 				
 				// add client to list
 				_that._clients.push([sessionid, "guest", "room1"]);
-				console.log("SERVER: List: "+JSON.stringify(_that._clients));
-
 				// listen to incomming msg
 				_that.listen(socket);
 				// listen to disconnect
@@ -41,63 +39,61 @@ module.exports = function (app){
 		 	s.on('disconnect', function() {
 		 		var sessionid = s.id;
 
-		 		console.log("SERVER: Client "+_that.getNameBySocketId(s)+" disconnected"); // chez le server
-				
-				_that.emit('msg', {
-					username : "Console",
-					txt : _that.getNameBySocketId(s)+" s'est déconnecté", // chez le client
-					room : _that.getRoomBySocketId(s)
-				});
+		 		console.log("SERVER: Client "+app.utils.getNameBySocketId(s)+" disconnected"); // chez le server
 
-				// deleting from client list
+		 		_that.emit('msg', {
+					username : "Serveur",
+					txt : app.utils.getNameBySocketId(s)+" s'est déconnecté", // chez le client
+					room : app.utils.getRoomBySocketId(s)
+				});
+				var savedRoom = app.utils.getRoomBySocketId(s); // saving room to send disconnection event
+
+		 		// deleting from client list
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
 						_that._clients.splice(i,1);	
 					}
 				}
 
-		 	})
+				// sending users left in room
+				_that.emit('connectedUsers', {
+					username : "Serveur",
+					users : app.utils.getUsersByRoom(savedRoom),
+					room : savedRoom
+				});
+				
+		 	});
 		},
 
 		listen : function(s) {
 			var _that = this;
 			var sessionid = s.id;
 
-			
-			// on new client connect
-			s.join('room1');
+			// receive msg
+			s.broadcast.on('msg', function(content) {
 
-			s.broadcast.emit('msg', {
-				username : "Console",
-				txt : "nouveau client connecté",
-				room: _that.getRoomBySocketId(s)
+				console.log("Received msg from: "+content.username+", content: "+content.txt+", for: "+content.room);
+				_that.emit('msg', content);
 			});
 
+			//receive sound
+			s.broadcast.on('sound', function(content) {
+			
 
-			// receive msg
-			s.on('msg', function(content) {
+				_that.emitSound(s, 'sound', {
+					instrumentName : content.instrumentName,
+					keyCodeValue : content.keyCodeValue,	
+					room : app.utils.getRoomBySocketId(s),
+					username : app.utils.getNameBySocketId(s)
 
-				console.log("Received msg from: "+_that.getNameBySocketId(s)+", content: "+content.txt+", for: "+content.room);
-
-				var contentWithSender = {
-					username : _that.getNameBySocketId(s), 
-					txt : content.txt,
-					room : content.room
-				};
-
-				_that.emit('msg', contentWithSender);
+				});
+				
 			});
 
 			// change nick
 			s.on('changeNick', function(content) {
-				console.log(_that.getNameBySocketId(s)+" changed his nickname to " +content);
-				
-				_that.emit('msg', {
-					username : "Console",
-					txt : _that.getNameBySocketId(s)+" a changé son nom par "+content,
-					room : content.room
-				});
-
+				console.log(app.utils.getNameBySocketId(s)+" changed his nickname to " +content);
+	
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
 						_that._clients[i][1] = content;
@@ -108,55 +104,73 @@ module.exports = function (app){
 
 			// change room
 			s.on('changeRoom', function(content) {
-				console.log(_that.getNameBySocketId(s)+" changed his ROOM to " +content);
 				
-				_that.emit('msg', {
-					username : "Console",
-					txt : _that.getNameBySocketId(s)+" a changé sa ROOM par "+content,
-					room : content.room
-				});
+				if(app.utils.isFullRoom(content)) {
+					s.emit('changedRoom', {
+						username : "Serveur",
+						canChange : false,
+						txt : "Impossible de changer de room (FULL)",
+						room : app.utils.getRoomBySocketId(s)
+					});
+					console.log(app.utils.getNameBySocketId(s)+" CANT change his ROOM to " +content+" (FULL)");
+					return;
+
+				} else {
+					s.emit('changedRoom', {
+						username : "Serveur",
+						canChange : true,
+						txt : app.utils.getNameBySocketId(s)+" a changé sa ROOM par "+content,
+						room : content.room
+					});
+				}
+				console.log(app.utils.getNameBySocketId(s)+" changed his ROOM to " +content);
 
 				for (var i=0; i<_that._clients.length; i++) {
 					if(_that._clients[i][0] == sessionid) {
 						_that._clients[i][2] = content;
 					}
 				}
+
+				s.leave(app.utils.getRoomBySocketId(s));
 				s.join(content);
+			});
+
+			//change instrument
+			s.on('changeInstrument', function(content) {
+				console.log(app.utils.getNameBySocketId(s)+" change his instrument to " +content);
+				console.log(content.room)
+				
+				_that.emit('msg', {
+					username : "Serveur",
+					txt : app.utils.getNameBySocketId(s)+" a changé son instrument par " + content,
+					room : app.utils.getRoomBySocketId(s)
+				});
+			});
+
+			// send a list of conenected users in the room
+			s.on('getConnectedUsers', function(data) {
+				console.log("Sending user list to "+data.username+", for room " +data.room);
+				
+				_that.emit('connectedUsers', {
+					username : "Serveur",
+					users : app.utils.getUsersByRoom(data.room),
+					room : data.room
+				});
+
+				console.log("SERVER: List: "+JSON.stringify(_that._clients));
+
 			});
 
 		},
 
 		emit : function (chan, data) {
-			//console.log("EMIT : "+JSON.stringify(data));
-			
-			this._io.in(data.room).emit(chan, data);
-			
-			//this._io.emit(chan, data.content);
+			// emit any message etc
+			this._io.in(data.room).emit(chan, data);	
 		},
 
-		getNameBySocketId : function(s) {
-			var _that = this;
-
-			var sessionid = s.id;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][0] == sessionid) {
-					return _that._clients[i][1];
-				}
-			}
-		},
-
-		getRoomBySocketId : function(s){
-			var _that = this;
-
-			var sessionid = s.id;
-
-			for (var i=0; i<_that._clients.length; i++) {
-				if(_that._clients[i][0] == sessionid) {
-					return _that._clients[i][2];
-				}
-			}
+		emitSound : function (s, chan, data) {
+			// send the code for the sound
+			s.broadcast.to(data.room).emit(chan, data);
 		}
 	}
-
 };

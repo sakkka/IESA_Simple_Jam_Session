@@ -1,98 +1,149 @@
+var arrayInstrument  = {};
+
+//fb 
+
+
+
 $(document).ready(function(){
+	//if no cookie then redirect to create
+	if((!getCookie('nickname'))||(!getCookie('room'))){
+		location.replace('/create');
+	}
+
+	//Load instrument
+	$.getJSON( "instrument.json", function( data ) {
+		var i = 0;
+		var j = 0;	
+
+		$.each( data, function( instrumentName, instrument ) {
+  			arrayInstrument[instrumentName] = {}	
+		    $.each(instrument, function(key,val){
+		     	i++; 
+		     });
+		     	
+		    $.each(instrument, function(key,val){
+			    $.ajax({url: val, 
+			     	success: function() {
+			     		arrayInstrument[instrumentName][key]  = val; 
+			     		j++;  
+			     			
+			     	},
+			     	complete: function(){		     		
+			     		if(j==i){
+			     			ready = true;
+						    $('.loader').fadeOut(100);
+						    $('.pad').fadeIn('fast');					      	 
+			     		}
+			     	}
+			    });
+		    });
+		});	
+	});
+
+	    
 
 	//KeyDown Event
-
+	ready = false;
 	$(document).keydown(function(event){	
-		if(!($(".inputMsg").is(":focus"))){	
+		if((!($(".inputMsg").is(":focus")))||(!ready)){	
 			switch(event.keyCode){
 				case 65:
 					keyPress('a');
+					playLocalSound('1');
 					break;
 				case 90:
 					keyPress('z');
+					playLocalSound('2');
 					break;	
 				case 69:
 					keyPress('e');
+					playLocalSound('3');
 					break;
 				case 82:
 					keyPress('r');
+					playLocalSound('4');
 					break;
 				case 84:
 					keyPress('t');
+					playLocalSound('5');
 					break;	
 				case 89:
 					keyPress('y');
+					playLocalSound('6');
 					break;	
 				case 85:
 					keyPress('u');
+					playLocalSound('7');
 					break;	
 				case 73:
 					keyPress('i');
+					playLocalSound('8');
 					break;	
 				case 79:
 					keyPress('o');
-					break;	
-				case 80:
-					keyPress('p');
-					break;
+					playLocalSound('9');
+					break;				
 				case 81:
 					keyPress('q');
+					playLocalSound('10');
 					break;		
 				case 83:
 					keyPress('s');
+					playLocalSound('11');
 					break;		
 				case 68:
 					keyPress('d');
+					playLocalSound('12');
 					break;		
 				case 70:
 					keyPress('f');
+					playLocalSound('13');
 					break;		
 				case 71:
 					keyPress('g');
+					playLocalSound('14');
 					break;		
 				case 72:
 					keyPress('h');
+					playLocalSound('15');
 					break;		
 				case 74:
 					keyPress('j');
+					playLocalSound('16')
 					break;	
 				case 75:
 					keyPress('k');
-					break;		
-				case 76:
-					keyPress('l');
-					break;		
-				case 77:
-					keyPress('m');
-					break;
+					playLocalSound('17')
+					break;	
 				case 87:
 					keyPress('w');
+					playLocalSound('18')
 					break;	
 				case 88:
 					keyPress('x');
+					playLocalSound('19')
 					break;	
 				case 67:
 					keyPress('c');
+					playLocalSound('20')
 					break;	
 				case 86:
 					keyPress('v');
+					playLocalSound('21')
 					break;	
 				case 66:
 					keyPress('b');
+					playLocalSound('22')
 					break;	
 				case 78:
 					keyPress('n');
+					playLocalSound('23')
 					break;
 				case 188:
 					keyPress('spe1');
-					break;	
-				case 190:
-					keyPress('spe2');
-					break;	
-				case 191:
-					keyPress('spe3');
-					break;					
-				default:
+					playLocalSound('24')
+					break;									
+				default:					
 					//do Nothing
 			}	
 		}		
@@ -128,10 +179,7 @@ $(document).ready(function(){
 				break;
 			case 79:
 				keyRelease('o');
-				break;
-			case 80:
-				keyRelease('p');
-				break;
+				break;		
 			case 81:
 				keyRelease('q');
 				break;		
@@ -156,12 +204,6 @@ $(document).ready(function(){
 			case 75:
 				keyRelease('k');
 				break;		
-			case 76:
-				keyRelease('l');
-				break;		
-			case 77:
-				keyRelease('m');
-				break;
 			case 87:
 				keyRelease('w');
 				break;	
@@ -182,13 +224,7 @@ $(document).ready(function(){
 				break;
 			case 188:
 				keyRelease('spe1');
-				break;	
-			case 190:
-				keyRelease('spe2');
-				break;	
-			case 191:
-				keyRelease('spe3');
-				break;																	
+				break;																
 			default:
 				//do Nothing
 		}					
@@ -199,8 +235,63 @@ $(document).ready(function(){
 		$('#'+nomTouche).css('opacity','0.6').css('transform','scale(0.9)');
 	}
 
-	function keyRelease(nomTouche){
+	function keyRelease(nomTouche){		
 		$('#'+nomTouche).css('opacity','1').css('transform','scale(1)');;
 	}
+	// init sound player
 	
-})
+
+     //Function who will play local sound 	
+	function playLocalSound(numSound){		
+		var currentInstrument = getCookie('instrument');		
+		var soundPlayer = document.createElement("AUDIO");
+      	soundPlayer.load();		
+		soundPlayer.src = arrayInstrument[currentInstrument][numSound];
+		soundPlayer.load();	
+		soundPlayer.play();	
+	 	soundPlayer.remove();	
+		emitSound(currentInstrument,numSound);
+	}
+	 
+	
+	
+});
+
+
+//Remove the animation fo
+function removePlay(username){
+	$('li#'+username).removeClass('play')
+}
+
+
+//Play the sound send by the server and animate the user's 
+function playSendSound(nameInstrument,keyCode,username){
+		if($('#'+username.replace(" ", "_")).attr('mute')!='true'){	
+			$('li#'+username).addClass('play');	
+			var soundSendPlayer = document.createElement("AUDIO");
+	      	soundSendPlayer.load();		
+			soundSendPlayer.src = arrayInstrument[nameInstrument][keyCode];
+			soundSendPlayer.load();
+			soundSendPlayer.play();
+			soundSendPlayer.remove();	
+			setTimeout(function() {
+	    			removePlay(username);
+					}, 100);
+		}		
+    			
+	}
+
+//Mute fonction	
+function mute(){
+	if($(this).attr('mute')=='true'){
+		$(this).attr('mute','false');
+		$(this).children('.mute').css('background-position','top');
+	}else{
+		$(this).attr('mute','true');
+		$(this).children('.mute').css('background-position','bottom');
+	}			
+}
+
+
+
+

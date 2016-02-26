@@ -1,5 +1,10 @@
 <!doctype html>
-<html lang="">
+<!-- /*******************************************************************************/
+     /                                                                               /
+     /                         Let's try the konami code                             /
+     /                                                                               /
+     /*******************************************************************************/     -->
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,27 +15,22 @@
         <link rel="stylesheet" href="pad.css">
         <link rel="stylesheet" href="chat.css">
         <link rel="stylesheet" href="themeSelect.css">
+        <link rel="stylesheet" href="share.css">
         <title>Simple Jam Session</title>
         <meta name="description" content="On-line jamming app">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
+         <!-- Twitter/Facebook stuff -->
+        <script type="text/javascript" src="fb_twitter_SDK.js"></script>
         <script type="text/javascript" src="pad.js"></script>
+        <script type="text/javascript" src="chat.js"></script>
         <script type="text/javascript" src="interface.js"></script>
-        <script type="text/javascript" src="jquery.html5Loader.js"></script>
         <!-- client stuff -->
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
         <script type="text/javascript" src="client.js"></script>
-        <script type="text/javascript" src="js/pad.js"></script>
-        <script type="text/javascript" src="js/interface.js"></script>
-        <script type="text/javascript" src="js/audioApi.js"></script>
+
+
     </head>
-    <body>
-
-            <aside style="float:left;">
-                <img src="logo.png"/>
-            </aside>
-
-
+    <body>     
         <div id="themeSelect">
             <span id="arrowDown"></span>
             <ul class="themeList">
@@ -45,14 +45,17 @@
                 <li id="t3" theme="3">
                     <div class="themePicker" id="color1"></div>
                     <div class="themePicker" id="color2"></div>
-                </li> 
-                <li id="t4" theme="4">
-                    <div class="themePicker" id="color1"></div>
-                    <div class="themePicker" id="color2"></div>
-                </li>     
+    
 
-            </ul>
-            
+                </li>                
+            </ul>            
+        </div>
+        <div class="loader" >
+                <div class="loader1"></div>          
+        </div>
+        <div class="users-list">
+            <ul></ul>
+
         </div>
         <div class="pad" id="theme1">
             <div class="row1">
@@ -65,7 +68,6 @@
                 <div class="key" id="u"></div>
                 <div class="key" id="i"></div>
                 <div class="key" id="o"></div>
-                <div class="key" id="p"></div>
             </div>
             <div class="row2">
                 <div class="key" id ="q"></div>
@@ -76,8 +78,6 @@
                 <div class="key" id ="h"></div>
                 <div class="key" id ="j"></div>
                 <div class="key" id ="k"></div>
-                <div class="key" id ="l"></div>
-                <div class="key" id ="m"></div>
             </div>    
             <div class="row3">
                 <div class="key"id="w"></div>
@@ -87,8 +87,7 @@
                 <div class="key"id="b"></div>
                 <div class="key"id="n"></div>
                 <div class="key"id="spe1"></div>
-                <div class="key"id="spe2"></div>
-                <div class="key"id="spe3"></div>
+    
             </div>
         </div>   
             <div class="chatRoom">
@@ -100,20 +99,37 @@
                     <div class="sendMsg" onclick="emit()">Envoyer</div>
                 </div>                  
             </div>
+            <div class="shareRoom">
+                <h2 class="shareHeader">Invitez vos amis</h2>
+                <div class="shareContent">
+                    <input type="text" id="urlRoom" ></input>
+                    <div class="copyURL">Copier</div>
+                    <div class="twitter">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-text="Let's jam together !" data-lang="fr" data-hashtags="SimpleJamSession">Tweeter</a>
+                    </div>      
+                    <div class="facebook">
+                        <div class="fb-share-button" data-href="" data-layout="button"></div>
+                    </div>
+                </div>    
+            </div>    
             <div id="theme1" class="instrumentSelect">
-                <div class="arrowIn"><h2>Instruments</h2></div>
+                <div class="arrowIn">
+                    <h2 class="instrumentHeader">Instruments</h2>
+                </div>
                 <div class="instrumentList">
                     <ul>
-                        <li class="active"><img src="sax.png" /><p class="nameInstrument">Saxophone</p></li>
-                        <li><img src="djembe.png" /><p class="nameInstrument">Djembe</p></li>
-                        <li><img src="guitar1.png" /><p class="nameInstrument">Guitar</p></li>
-                        <li><img src="guitar2.png" /><p class="nameInstrument">Guitar</p></li>
-                        <li><img src="horn.png" /><p class="nameInstrument">Horn</p></li>
-                        <li><img src="maracas.png" /><p class="nameInstrument">Maracas</p></li>
-                        <li><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
+                        <li class="active" instrument="bass"><img src="guitar2.png" /><p class="nameInstrument">Bass</p></li>
+                        <li instrument="voice"><img src="micro.png" /><p class="nameInstrument">Voice</p></li>
+                        <li instrument="drums"><img src="drums.png" /><p class="nameInstrument">Drums</p></li>
+                        <li instrument="piano"><img src="piano.png" /><p class="nameInstrument">Piano</p></li>
+                        <li instrument="guitar"><img src="guitar.png" /><p class="nameInstrument">Guitare</p></li>
+                        <li instrument="bassgrowl"><img src="BassGrowl.png" /><p class="nameInstrument">Bass FX</p></li>
+                        <!-- Must stay the last -->
+                        <li instrument="rick" style="display:none;"><img src="rick.png" /><p class="nameInstrument">Rick</p></li>
                     </ul>
                 </div>
             </div>   
+            
     
     </body>
 </html>
