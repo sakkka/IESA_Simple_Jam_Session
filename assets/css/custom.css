@@ -30,6 +30,15 @@ html, body {
 
 }
 
+.header img {
+	width: 29%;
+	position: relative;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: -180px;
+}
+
+
 .logo img {
 	width: 10%;
 	position: absolute;
@@ -63,6 +72,7 @@ html, body {
 	-webkit-animation: jamAnim 0.7s 0s linear infinite;
 }
 
+
 .join p {
 	font-family: 'Open Sans', sans-serif;
 	color : white;
@@ -71,7 +81,6 @@ html, body {
 	height: 100%;
 	font-size: 30px;
 	margin-top: 12px;
-
 }
 
 input {
