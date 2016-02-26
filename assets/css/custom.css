@@ -175,7 +175,16 @@ footer .social li {
 /*facebook log in */
 .fb_iframe_widget{
     text-align: center;
+<<<<<<< Updated upstream
     width: 100%;
+=======
+    width: 30%;
+
+    left: 50%;
+    margin-left: -15%;
+  
+    border-radius: 10px;
+>>>>>>> Stashed changes
 }
 
 .fb-login-button {
