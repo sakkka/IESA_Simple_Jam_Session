@@ -7,16 +7,7 @@ body {
 
 /* Default */
 
-@-webkit-keyframes msgNotification {
-	0% {
-		background-color: #CD2626;
-	}
-	
-	100% {
-		
-		background-color: #70908a;
-	}
-}
+
 
 @-webkit-keyframes userPlay {
 	0% {
@@ -34,7 +25,6 @@ body {
 }
 
 /* Loader */
-
 .loader1{
 	position: relative;
 	height: 80px;
@@ -84,12 +74,7 @@ body {
 	background-color: #FFFDD5;
 }
 
-
-.newMsgNotification{
-	background-color: red !important;
-	-webkit-animation: msgNotification 2s 0s linear infinite;
-}
-
+/**** Pad ******/
 .row1 .key {
 	height: 100px;
 	width: 100px;
@@ -144,7 +129,7 @@ body {
 }
 
 
-/*Select instrument*/
+/*  Select instrument  */
 .arrowIn {
 	margin: 0px;
 	width: 20%;
@@ -284,7 +269,7 @@ body {
 	margin-top: 90px;
 }
 
-/*Theme 1*/
+/*   Theme 1   */
 #theme1 .row1 .key {
 	background-color: #BD96FF;
 }
@@ -308,7 +293,7 @@ body {
 #theme1 li {
 	background-color: #FFFDD5;
 }
-/*Theme 2*/
+/*  Theme 2  */
 #theme2 .row1 .key {
 	background-color: #8DCBCB;
 }
@@ -333,7 +318,7 @@ body {
 	background-color: #7F5E4B;
 }
 
-/*Theme 3*/
+/*  Theme 3  */
 #theme3 .row1 .key {
 	background-color: #A0CBAD;
 }
@@ -357,19 +342,5 @@ body {
 #theme3 li {
 	background-color: #CB6463;
 }
-/*metronome*/
-.btn {
-  border-radius: 5px;
-  display: block;
-  background: green;
-  float: left;
-  clear: none;
-  color: white;
-  padding: 4px 8px;
-  margin: 8px 8px 8px 0;
-  cursor: pointer;
-}
-.stop {
-  background: red;
-}
+
 

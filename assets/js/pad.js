@@ -10,6 +10,36 @@ $(document).ready(function(){
 		location.replace('/create');
 	}
 
+	//Load instrument
+	$.getJSON( "instrument.json", function( data ) {
+		var i = 0;
+		var j = 0;	
+
+		$.each( data, function( instrumentName, instrument ) {
+  			arrayInstrument[instrumentName] = {}	
+		    $.each(instrument, function(key,val){
+		     	i++; 
+		     });
+		     	
+		    $.each(instrument, function(key,val){
+			    $.ajax({url: val, 
+			     	success: function() {
+			     		arrayInstrument[instrumentName][key]  = val; 
+			     		j++;  
+			     			
+			     	},
+			     	complete: function(){		     		
+			     		if(j==i){
+			     			ready = true;
+						    $('.loader').fadeOut(100);
+						    $('.pad').fadeIn('fast');					      	 
+			     		}
+			     	}
+			    });
+		    });
+		});	
+	});
+
 	    
 
 	//KeyDown Event
@@ -212,8 +242,7 @@ $(document).ready(function(){
 	
 
      //Function who will play local sound 	
-	function playLocalSound(numSound){	
-		
+	function playLocalSound(numSound){		
 		var currentInstrument = getCookie('instrument');		
 		var soundPlayer = document.createElement("AUDIO");
       	soundPlayer.load();		
@@ -223,95 +252,21 @@ $(document).ready(function(){
 	 	soundPlayer.remove();	
 		emitSound(currentInstrument,numSound);
 	}
-
-
-	//mute fonction
+	 
 	
-
-
-
-	//Function who return cookie
-
-	//Load instrument
-	$.getJSON( "instrument.json", function( data ) {
-		var i = 0;
-		var j = 0;			
-		  $.each( data, function( instrumentName, instrument ) {
-  			arrayInstrument[instrumentName] = {}	
-
-		     $.each(instrument, function(key,val){
-		     	i++; 
-		     	});
-		     	
-		     	$.each(instrument, function(key,val){
-		     	$.ajax({url: val, 
-		     		success: function() {
-		     			arrayInstrument[instrumentName][key]  = val; 
-		     			j++;  
-		     			
-		     		},
-		     		complete: function(){
-		     			if(j==i){
-		     				ready = true;
-					      	$('.loader').fadeOut(100);
-					      	$('.pad').fadeIn('fast');
-					      	console.log('end');  
-		     			}
-		     		}
-		     	}
-
-		     );
-		     });
-		  });		 
-		
-      	
-	});
-	 	
-
-	 	$( document ).ajaxComplete(function( event,request, settings ) {
-  $( "#msg" ).append( "<li>Request Complete.</li>" );
-});
-
-
-	//konami code
-	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
-		n = 0;
-		$(document).keydown(function (e) {
-	    	if (e.keyCode === k[n++]) {
-	        	if (n === k.length) {
-
-	            	addSpecial();
-	            	n = 0;
-	            	return false;
-	        	}
-	    	}
-	    	else {
-	        	n = 0;
-	    	}
-
-	//Never gonna give you up,rick is in da place    	
-	function addSpecial(){
-		console.log('Never gonna give you up,rick is in da place !');
-		$('.instrumentList ul li').last().fadeIn('fast');
-	}
-});
-
-	//Emit sound
-	//Function who will play recieve sound 	
-	
-
 	
 });
 
+
+//Remove the animation fo
 function removePlay(username){
 	$('li#'+username).removeClass('play')
 }
 
 
-
+//Play the sound send by the server and animate the user's 
 function playSendSound(nameInstrument,keyCode,username){
-	username = username.replace(" ", "_");
-		if($('#'+username).attr('mute')!='true'){	
+		if($('#'+username.replace(" ", "_")).attr('mute')!='true'){	
 			$('li#'+username).addClass('play');	
 			var soundSendPlayer = document.createElement("AUDIO");
 	      	soundSendPlayer.load();		
@@ -325,15 +280,16 @@ function playSendSound(nameInstrument,keyCode,username){
 		}		
     			
 	}
+
+//Mute fonction	
 function mute(){
-			if($(this).attr('mute')=='true'){
-				$(this).attr('mute','false');
-				$(this).children('.mute').css('background-position','top');
-			}else{
-				$(this).attr('mute','true');
-				$(this).children('.mute').css('background-position','bottom');
-			}		
-			
+	if($(this).attr('mute')=='true'){
+		$(this).attr('mute','false');
+		$(this).children('.mute').css('background-position','top');
+	}else{
+		$(this).attr('mute','true');
+		$(this).children('.mute').css('background-position','bottom');
+	}			
 }
 
 

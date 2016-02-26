@@ -64,3 +64,20 @@ span#user {
 	display: none;
 }
 
+.newMsgNotification{
+	background-color: red !important;
+	-webkit-animation: msgNotification 2s 0s linear infinite;
+}
+
+
+@-webkit-keyframes msgNotification {
+	0% {
+		background-color: #CD2626;
+	}
+	
+	100% {
+		
+		background-color: #70908a;
+	}
+}
+

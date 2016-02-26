@@ -1,5 +1,6 @@
-
 $(document).ready(function(){ 
+
+	//If a theme is in cookie, then current theme = cookie theme
 	document.cookie="instrument=bass";
 	if(!getCookie('theme')){
 		document.cookie="theme=1";
@@ -11,6 +12,7 @@ $(document).ready(function(){
 		$('.themeList').children().first().before(theme);
 
 	}
+
 	//Theme Picker
 	$('.themeList li').hover(function() {
 		$(this).css('border','2px solid white');
@@ -38,12 +40,6 @@ $(document).ready(function(){
 		    });
 		  });
 	});
-
-	//Close cookie alert
-
-	$('#close').click(function(){
-		$('.alerteCookie').slideToggle('fast');
-	})
 
 	//Share
 
@@ -107,35 +103,40 @@ $(document).ready(function(){
 		
 		
 		});
-
+	
+	//Show the name of the instrument on hover
 	$('.instrumentList li').hover(function() {
 		$(this).children('p').fadeIn('fast');
 	}, function() {
 		$(this).children('p').fadeOut('fast');
 	});
 
+	//Easter Eggs
+	//konami code
+	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		n = 0;
+		$(document).keydown(function (e) {
+	    	if (e.keyCode === k[n++]) {
+	        	if (n === k.length) {
+	            	addSpecial();
+	            	n = 0;
+	            	return false;
+	        	}
+	    	}
+	    	else {
+	        	n = 0;
+	    	}
+		});
 
-	//Chat and notifications
-	$('.chatHeader').click(function(event) {
-		$('.chatWindow').slideToggle("fast");
-		
-		if(currentStateOpened) {
-			currentStateOpened = false;
-		} else {
-			// if i just opened it
-			$(".inputMsg").focus();
-			currentStateOpened = true;
-			eraseNewMsgNotification();
-		}
-	});
 
-	// send message with Enter
-	$(document).keyup(function(event){
-		if((event.keyCode==13) && ($('#inputText').val()) && ($(".inputMsg").is(":focus")) ){
-			emit(); // client.js function
-		}
-	});
+	//Never gonna give you up,rick is in da place    	
+	function addSpecial(){
+		console.log('Never gonna give you up,rick is in da place !');
+		$('.instrumentList ul li').last().fadeIn('fast');
+	}
 
+
+	
 	// display "join room link"
 	$(document).ready(function() {
 		if(location.pathname=='/play'){
@@ -143,28 +144,11 @@ $(document).ready(function(){
 		}
 	});
 	
+
+
 });
 
-//Chat function
-var currentStateOpened = false;
 
-function addNewMsgNotification() {
-	if( !currentStateOpened ){
-		$(".chatHeader").addClass("newMsgNotification");
-	}
-}
-
-function eraseNewMsgNotification() {
-	$(".chatHeader").removeClass("newMsgNotification");
-}
-
-//Function who send message
-function sendMsg(message, user){
-	$('.msg').append('<p><span id="user">'+user+'</span> : '+message+'</p>');
-	$('.inputMsg').val('');
-	$('.msg').animate({ scrollTop: 1000000 }, "slow");
-
-}
 
 //Fonction who send the cureent room and create the link for the current room
 function generateLink(nameRoom){
@@ -186,6 +170,7 @@ function getCookie(cname) {
 	    return "";
 	}
 
+//Print the list of the current user in the room
 function printConnectedUsers(data) {
 	$('.user-in-list').remove();
 	for (var i=0; i<data.length; i++) {

@@ -29,4 +29,9 @@ $(document).ready(function() {
 		}
 	});
 
+	//Clean cookie alert
+	$('#close').click(function(){
+		$('.alerteCookie').slideToggle('fast');
+	})
+
 });
