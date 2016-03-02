@@ -157,6 +157,7 @@ body {
 	position: fixed;
 	float: left;
 	bottom: 0;
+	z-index: 250;
 	
 	}
 
@@ -227,7 +228,7 @@ body {
 .users-list {
 	position: absolute;
 	width: 20%;
-	z-index: 1000;		
+	z-index: 150;		
 }
 
 .play {

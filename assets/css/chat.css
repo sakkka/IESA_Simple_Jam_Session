@@ -4,6 +4,7 @@
 .chatRoom {
 	position: fixed;
 	float: left;
+	z-index: 200;
 	bottom: 0;
 	background-color: white;
 	width: 300px;
@@ -31,6 +32,10 @@ h2.chatHeader {
 	background-color: #FAFAFA;
 	height: 250px;
 	overflow-y: auto;
+}
+
+.msg p {
+	margin: 2px 5px
 }
 
 span#user {
